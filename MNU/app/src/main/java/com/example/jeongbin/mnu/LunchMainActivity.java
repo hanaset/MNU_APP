@@ -78,14 +78,14 @@ public class LunchMainActivity extends AppCompatActivity {
                 back_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setting_menu(page--);
+                        setting_menu(--page);
                     }
                 });
 
                 next_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setting_menu(page++);
+                        setting_menu(++page);
                     }
                 });
 
