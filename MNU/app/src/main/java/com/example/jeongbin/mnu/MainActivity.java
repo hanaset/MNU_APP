@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton lunch_btn, weather_btn, bus_btn;
+    ImageButton lunch_btn, weather_btn, bus_btn, book_btn,intranet_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         lunch_btn = (ImageButton)findViewById(R.id.M_lunch_btn);
         weather_btn = (ImageButton)findViewById(R.id.M_weather_btn);
         bus_btn = (ImageButton)findViewById(R.id.M_bus_btn);
+        book_btn = (ImageButton)findViewById(R.id.M_book_btn);
+        intranet_btn = (ImageButton)findViewById(R.id.M_intranet_btn);
 
 
         lunch_btn.setOnClickListener(new View.OnClickListener() {
@@ -38,10 +40,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bus_btn.setOnClickListener(new View.OnClickListener() {
+        book_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BookMainActivity.class);
+                startActivity(intent);
             }
         });
+
+        intranet_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IntranetActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".LunchMainActivity"></activity>
         <activity android:name=".WeatherMainActivity"></activity>
+        <activity android:name=".BookMainActivity"></activity>
+        <activity android:name=".IntranetActivity"></activity>
     </application>
 
 </manifest>
