@@ -1,5 +1,6 @@
 package com.example.jeongbin.mnu;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +18,6 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -32,12 +32,11 @@ import java.util.HashMap;
 
 public class BookMainActivity extends AppCompatActivity {
 
-    JSONArray book = null;
     ArrayList<HashMap<String, String>> bookList;
     ListView list;
 
-    String prev_url = "http://library.mokpo.ac.kr/DLiWeb25/comp/common/rss.aspx?querytype=4&srv=95&method=0&field=";
-    String next_url = "&operator=0&classid=40,7,19,2,41,38,4,13,37,16,1&max=300&cntperpage=20&viewoption=0&sort=AUTH";
+    String prev_url = "http://library.mokpo.ac.kr/DLiWeb25/comp/search/Results.aspx?m_var=505&srv=95&method=0&field=";
+    String next_url = "&sType2=PUBN&keyword=";
 
     String url = null;
     int check_error = 0;
@@ -70,6 +69,36 @@ public class BookMainActivity extends AppCompatActivity {
         search_btn = (Button) findViewById(R.id.BM_search_btn);
         editText = (EditText)findViewById(R.id.BM_search_edit);
 
+        handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+
+                if(check_error == 1) {
+
+                    list = (ListView) findViewById(R.id.BM_book_list);
+                    list.setAdapter(adapter2);
+
+                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            Intent intent = new Intent(BookMainActivity.this, BookInfoActivity.class);
+                            HashMap<String, String> books =  bookList.get(position);
+                            intent.putExtra("url","http://library.mokpo.ac.kr"+books.get("url"));
+                            intent.putExtra("info",books.get("info"));
+                            intent.putExtra("name",books.get("name"));
+                            startActivity(intent);
+                        }
+                    });
+
+
+                }else{
+                    Toast.makeText(getApplication(), "검색 내용이 없습니다.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,36 +116,10 @@ public class BookMainActivity extends AppCompatActivity {
                     }
                     name = editText.getText().toString();
 
-                    url = prev_url + subject +"&keyword="+ name + next_url;
+                    url = prev_url + subject + next_url + name;
 
                     BookMainActivity.JsoupAsyncTask jsoupAsyncTask = new BookMainActivity.JsoupAsyncTask();
                     jsoupAsyncTask.execute();
-
-
-                    handler = new Handler(){
-                        @Override
-                        public void handleMessage(Message msg) {
-                            super.handleMessage(msg);
-
-                            if(check_error == 1) {
-
-                                list = (ListView) findViewById(R.id.BM_book_list);
-                                list.setAdapter(adapter2);
-
-                                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                    @Override
-                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                        //HashMap<String, String> books =  bookList.get(position);
-                                    }
-                                });
-
-
-                            }else{
-                                Toast.makeText(getApplication(), "검색 내용이 없습니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            bookList = new ArrayList<>();
-                        }
-                    };
 
                 }
             }
@@ -136,15 +139,18 @@ public class BookMainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             try {
                 Document doc = Jsoup.connect(url).get();
-                Elements title = doc.select("title");
-                Elements info = doc.select("description");
+                Elements title = doc.select("[class=title]");
+                Elements info = doc.select("[class=advance_bibliography]");
 
-                for(int i = 1; i<title.size();i++){
+                bookList = new ArrayList<>();
 
-                    HashMap<String, String> books = new HashMap<>();
+                for(int i = 0; i<title.size();i++){
+
+                    HashMap<String, String> books = new HashMap<String, String>();
 
                     books.put("name", title.get(i).text());
                     books.put("info", info.get(i).text());
+                    books.put("url",  title.get(i).attr("href"));
 
                     bookList.add(books);
 
@@ -155,7 +161,7 @@ public class BookMainActivity extends AppCompatActivity {
                     check_error = 0;
                 }else{
                     adapter2 = new SimpleAdapter(BookMainActivity.this, bookList, R.layout.book_item,
-                            new String[]{"name","info"},
+                            new String[]{"name","info","url"},
                             new int[]{R.id.BI_book_name, R.id.BI_book_info});
 
                     check_error = 1;

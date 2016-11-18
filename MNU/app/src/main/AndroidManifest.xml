@@ -21,6 +21,7 @@
         <activity android:name=".WeatherMainActivity"></activity>
         <activity android:name=".BookMainActivity"></activity>
         <activity android:name=".IntranetActivity"></activity>
+        <activity android:name=".BookInfoActivity"></activity>
     </application>
 
 </manifest>
