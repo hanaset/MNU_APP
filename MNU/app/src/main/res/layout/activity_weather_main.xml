@@ -212,7 +212,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="26dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.93">
 
@@ -245,24 +245,20 @@
         android:layout_height="match_parent">
 
         <Button
-            android:text="Button"
+            android:text="오늘 날씨"
+            android:layout_marginTop="70dp"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/button"
-            android:layout_weight="1" />
+            android:id="@+id/WM_today_btn"
+            android:layout_weight="1"
+            android:layout_height="60dp" />
 
         <Button
-            android:text="Button"
+            android:text="내일 날씨"
+            android:layout_marginTop="70dp"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/button2"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/button3"
+            android:layout_height="60dp"
+            android:id="@+id/WM_nextday_btn"
             android:layout_weight="1" />
     </LinearLayout>
+
 </LinearLayout>

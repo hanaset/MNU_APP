@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,8 +16,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by JeongBin on 2016-11-18.
@@ -27,13 +29,13 @@ public class WeatherMainActivity extends AppCompatActivity {
     String muan_url = "http://weather.naver.com/rgn/cityWetrCity.nhn?cityRgnCd=CT011010";
     String Gangju_url = "http://weather.naver.com/rgn/cityWetrCity.nhn?cityRgnCd=CT011005";
 
-    String[] Mokpo_temp = new String[2];
-    String[] Muan_temp = new String[2];
-    String[] Gangju_temp = new String[2];
+    String[] Mokpo_temp = new String[4];
+    String[] Muan_temp = new String[4];
+    String[] Gangju_temp = new String[4];
 
-    String[] Mokpo_info = new String[2];
-    String[] Muan_info = new String[2];
-    String[] Gangju_info = new String[2];
+    String[] Mokpo_info = new String[4];
+    String[] Muan_info = new String[4];
+    String[] Gangju_info = new String[4];
 
     ImageView[] imageViews = new ImageView[6];
 
@@ -56,7 +58,24 @@ public class WeatherMainActivity extends AppCompatActivity {
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
 
-                setting();
+                Button today_btn = (Button)findViewById(R.id.WM_today_btn);
+                Button next_btn = (Button)findViewById(R.id.WM_nextday_btn);
+
+                setting(0);
+
+                today_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setting(0);
+                    }
+                });
+
+                next_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        setting(2);
+                    }
+                });
             }
         };
 
@@ -79,13 +98,13 @@ public class WeatherMainActivity extends AppCompatActivity {
                 Document doc = Jsoup.connect(mokpo_url).get();
                 Elements links = doc.select("[class=info]");
 
-                for(int i = 0; i<2; i++) {
+                for(int i = 0; i<4; i++) {
                     Mokpo_info[i] = links.get(i).text();
                 }
 
                 links = doc.select("[class=nm]");
 
-                for(int i = 0; i<2; i++) {
+                for(int i = 0; i<4; i++) {
                     Mokpo_temp[i] = links.get(i).text();
                 }
 
@@ -94,13 +113,13 @@ public class WeatherMainActivity extends AppCompatActivity {
                 doc = Jsoup.connect(muan_url).get();
                 links = doc.select("[class=info]");
 
-                for(int i = 0; i<2; i++) {
+                for(int i = 0; i<4; i++) {
                     Muan_info[i] = links.get(i).text();
                 }
 
                 links = doc.select("[class=nm]");
 
-                for(int i = 0; i<2; i++) {
+                for(int i = 0; i<4; i++) {
                     Muan_temp[i] = links.get(i).text();
                 }
 
@@ -110,13 +129,13 @@ public class WeatherMainActivity extends AppCompatActivity {
                 doc = Jsoup.connect(Gangju_url).get();
                 links = doc.select("[class=info]");
 
-                for(int i = 0; i<2; i++) {
+                for(int i = 0; i<4; i++) {
                     Gangju_info[i] = links.get(i).text();
                 }
 
                 links = doc.select("[class=nm]");
 
-                for(int i = 0; i<2; i++) {
+                for(int i = 0; i<4; i++) {
                     Gangju_temp[i] = links.get(i).text();
                 }
 
@@ -133,10 +152,15 @@ public class WeatherMainActivity extends AppCompatActivity {
         }
     }
 
-    private  void setting(){
+    private  void setting(int date){
 
-        Date d = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
+        //Date d = new Date();
+        //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
+
+        Calendar calendar = new GregorianCalendar();
+        if(date != 0){
+            calendar.add(Calendar.DATE, 1);
+        }
 
         textViews[0] = (TextView)findViewById(R.id.WM_MPamtemp);
         textViews[1] = (TextView)findViewById(R.id.WM_MPpmtemp);
@@ -163,32 +187,32 @@ public class WeatherMainActivity extends AppCompatActivity {
         imageViews[5] = (ImageView)findViewById(R.id.WM_GJpmimage);
 
         ////////////////////////////////////////////////
-        textViews[0].setText(Mokpo_temp[0]);
-        textViews[1].setText(Mokpo_temp[1]);
-        textViews[2].setText(Mokpo_info[0]);
-        textViews[3].setText(Mokpo_info[1]);
+        textViews[0].setText(Mokpo_temp[date]);
+        textViews[1].setText(Mokpo_temp[date+1]);
+        textViews[2].setText(Mokpo_info[date]);
+        textViews[3].setText(Mokpo_info[date+1]);
 
-        imageCheck(imageViews[0], Mokpo_info[0]);
-        imageCheck(imageViews[1], Mokpo_info[1]);
+        imageCheck(imageViews[date], Mokpo_info[date]);
+        imageCheck(imageViews[date+1], Mokpo_info[date + 1]);
 
-        textViews[4].setText(Muan_temp[0]);
-        textViews[5].setText(Muan_temp[1]);
-        textViews[6].setText(Muan_info[0]);
-        textViews[7].setText(Muan_info[1]);
+        textViews[4].setText(Muan_temp[date]);
+        textViews[5].setText(Muan_temp[date+1]);
+        textViews[6].setText(Muan_info[date]);
+        textViews[7].setText(Muan_info[date+1]);
 
-        imageCheck(imageViews[2], Muan_info[0]);
-        imageCheck(imageViews[3], Muan_info[1]);
+        imageCheck(imageViews[2], Muan_info[date]);
+        imageCheck(imageViews[3], Muan_info[date+1]);
 
-        textViews[8].setText(Gangju_temp[0]);
-        textViews[9].setText(Gangju_temp[1]);
-        textViews[10].setText(Gangju_info[0]);
-        textViews[11].setText(Gangju_info[1]);
+        textViews[8].setText(Gangju_temp[date]);
+        textViews[9].setText(Gangju_temp[date+1]);
+        textViews[10].setText(Gangju_info[date]);
+        textViews[11].setText(Gangju_info[date+1]);
 
-        imageCheck(imageViews[4], Gangju_info[0]);
-        imageCheck(imageViews[5], Gangju_info[1]);
+        imageCheck(imageViews[4], Gangju_info[date]);
+        imageCheck(imageViews[5], Gangju_info[date+1]);
 
         date_text = (TextView)findViewById(R.id.WM_today_text);
-        date_text.setText(simpleDateFormat.format(d));
+        date_text.setText(calendar.get(Calendar.YEAR) + "년\t" + calendar.get(Calendar.MONTH) + "월\t" + calendar.get(Calendar.DAY_OF_MONTH)+ "일 " );
 
     }
 
