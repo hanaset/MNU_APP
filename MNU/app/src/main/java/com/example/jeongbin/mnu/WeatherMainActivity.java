@@ -47,6 +47,7 @@ public class WeatherMainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_main);
+        setTitle("오늘 날씨는 어떠니?");
 
 
 

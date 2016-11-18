@@ -49,6 +49,7 @@ public class LunchMainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lunch_main);
+        setTitle("오늘 급식은 어떠니?");
 
         handler = new Handler(){
             @Override
@@ -65,7 +66,7 @@ public class LunchMainActivity extends AppCompatActivity {
                     }
                 }
 
-                setting_menu(page);
+                setting_menu();
                 Button back_btn, next_btn;
 
                 back_btn = (Button)findViewById(R.id.LM_back_btn);
@@ -75,14 +76,16 @@ public class LunchMainActivity extends AppCompatActivity {
                 back_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setting_menu(--page);
+                        --page;
+                        setting_menu();
                     }
                 });
 
                 next_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        setting_menu(++page);
+                        ++page;
+                        setting_menu();
                     }
                 });
 
@@ -152,7 +155,7 @@ public class LunchMainActivity extends AppCompatActivity {
         }
     }
 
-    private void setting_menu(int page){
+    private void setting_menu(){
 
 
 
@@ -167,8 +170,13 @@ public class LunchMainActivity extends AppCompatActivity {
         date_text = (TextView)findViewById(R.id.LM_date_text);
 
 
-        if(page < 0 || page > 6){
+        if(page < 0){
             Toast.makeText(getApplication(),"더 이상 식단표가 없습니다.",Toast.LENGTH_SHORT).show();
+            page = 0;
+            return;
+        }else if(page > 6){
+            Toast.makeText(getApplication(),"더 이상 식단표가 없습니다.",Toast.LENGTH_SHORT).show();
+            page = 6;
             return;
         }
 
