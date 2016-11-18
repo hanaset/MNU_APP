@@ -29,5 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        weather_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WeatherMainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LunchMainActivity"></activity>
+        <activity android:name=".WeatherMainActivity"></activity>
     </application>
 
 </manifest>

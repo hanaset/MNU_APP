@@ -26,17 +26,20 @@
         <ImageButton
             android:layout_width="110dp"
             android:layout_height="110dp"
-            app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/M_bus_btn"
+            app:srcCompat="@drawable/icon2"
+            android:id="@+id/M_weather_btn"
             android:layout_margin="5dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@android:color/background_light" />
 
         <ImageButton
             android:layout_width="110dp"
             android:layout_height="110dp"
             app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/M_weather_btn"
+            android:id="@+id/M_bus_btn"
             android:layout_margin="5dp"
             android:layout_weight="1" />
+
     </LinearLayout>
 </LinearLayout>

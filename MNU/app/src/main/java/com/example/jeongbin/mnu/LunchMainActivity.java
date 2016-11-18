@@ -25,9 +25,6 @@ import java.util.Date;
 
 public class LunchMainActivity extends AppCompatActivity {
 
-    //String morning, lunch, dinner;
-    //String btl_morning, btl_lunch, btl_dinner;
-
     TextView m_text, l_text, d_text, bm_text, bl_text, bd_text, date_text;
 
     String[] morning = new String[7];

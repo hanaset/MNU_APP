@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="오늘날짜"
+        android:textSize="10pt"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/WM_today_text"
+        android:textAlignment="center"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="\n목포"
+                android:layout_margin="5dp"
+                android:layout_height="100dp"
+                android:id="@+id/WM_MP_text"
+                android:layout_width="40dp"
+                android:textSize="8pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="150dp">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/WM_MPamimage" />
+
+            <TextView
+                android:text="온도"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MPamtemp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="한글"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MPamhan"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/WM_MPpmimage" />
+
+            <TextView
+                android:text="온도"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MPpmtemp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="한글"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MPpmhan"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="\n광주"
+                android:layout_margin="5dp"
+                android:layout_width="40dp"
+                android:layout_height="100dp"
+                android:id="@+id/WM_GJ_text"
+                android:textSize="8pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/WM_GJamimage" />
+
+            <TextView
+                android:text="온도"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_GJamtemp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="한글"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_GJamhan"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/WM_GJpmimage" />
+
+            <TextView
+                android:text="온도"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_GJpmtemp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="한글"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_GJpmhan"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="\n무안"
+                android:layout_margin="5dp"
+                android:layout_height="100dp"
+                android:id="@+id/WM_MA_text"
+                android:layout_width="40dp"
+                android:textSize="8pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/WM_MAamimage" />
+
+            <TextView
+                android:text="온도"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MAamtemp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="한글"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MAamhan"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="26dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.93">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/WM_MApmimage" />
+
+            <TextView
+                android:text="온도"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MApmtemp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="한글"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/WM_MApmhan"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
