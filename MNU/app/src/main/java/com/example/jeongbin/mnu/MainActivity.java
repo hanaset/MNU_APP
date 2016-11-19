@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton lunch_btn, weather_btn, bus_btn, book_btn,intranet_btn,qa_btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         NetworkUtil.setNetworkPolicy();
@@ -27,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
         lunch_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LunchMainActivity.class);
+                Intent intent = new Intent(MainActivity.this, SchoolLunchActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -62,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QAinfoActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        bus_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 

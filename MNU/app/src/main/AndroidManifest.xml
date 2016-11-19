@@ -17,13 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LunchMainActivity"></activity>
         <activity android:name=".WeatherMainActivity"></activity>
         <activity android:name=".BookMainActivity"></activity>
         <activity android:name=".IntranetActivity"></activity>
         <activity android:name=".BookInfoActivity"></activity>
         <activity android:name=".QAinfoActivity"></activity>
-        <activity android:name=".LunchTeacherActivity"></activity>
+        <activity android:name=".SchoolLunchActivity"></activity>
     </application>
 
 </manifest>
