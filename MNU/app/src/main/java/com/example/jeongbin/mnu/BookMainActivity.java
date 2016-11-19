@@ -1,5 +1,6 @@
 package com.example.jeongbin.mnu;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -50,6 +51,8 @@ public class BookMainActivity extends AppCompatActivity {
     Button search_btn;
     EditText editText;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +81,8 @@ public class BookMainActivity extends AppCompatActivity {
 
                     list = (ListView) findViewById(R.id.BM_book_list);
                     list.setAdapter(adapter2);
+
+                    progressDialog.dismiss();
 
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
@@ -120,6 +125,8 @@ public class BookMainActivity extends AppCompatActivity {
 
                     BookMainActivity.JsoupAsyncTask jsoupAsyncTask = new BookMainActivity.JsoupAsyncTask();
                     jsoupAsyncTask.execute();
+
+                    progressDialog = ProgressDialog.show(BookMainActivity.this, "로딩 중", "잠시 기달려주세요.",true);
 
                 }
             }

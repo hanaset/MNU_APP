@@ -1,5 +1,6 @@
 package com.example.jeongbin.mnu;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,6 +45,8 @@ public class BookInfoActivity extends AppCompatActivity {
     SimpleAdapter adapter;
     ListView list;
 
+    public static ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,8 @@ public class BookInfoActivity extends AppCompatActivity {
         url = intent.getExtras().getString("url");
         name = intent.getExtras().getString("name");
         info = intent.getExtras().getString("info");
+
+        progressDialog = ProgressDialog.show(BookInfoActivity.this, "로딩 중", "잠시 기달려주세요.",true);
 
         BookInfoActivity.JsoupAsyncTask jsoupAsyncTask = new BookInfoActivity.JsoupAsyncTask();
         jsoupAsyncTask.execute();
@@ -77,6 +82,8 @@ public class BookInfoActivity extends AppCompatActivity {
                 }
 
                new DownloadImageTask((ImageView)findViewById(R.id.BIF_book_image)).execute(image_url);
+
+                progressDialog.dismiss();
 
             }
         };

@@ -1,5 +1,6 @@
 package com.example.jeongbin.mnu;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,6 +44,8 @@ public class WeatherMainActivity extends AppCompatActivity {
 
     TextView date_text;
 
+    public static ProgressDialog progressDialog;
+
     public static Handler handler = null;
 
     @Override
@@ -57,6 +60,8 @@ public class WeatherMainActivity extends AppCompatActivity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
+
+                progressDialog.dismiss();
 
                 Button today_btn = (Button)findViewById(R.id.WM_today_btn);
                 Button next_btn = (Button)findViewById(R.id.WM_nextday_btn);
@@ -79,6 +84,8 @@ public class WeatherMainActivity extends AppCompatActivity {
             }
         };
 
+
+        progressDialog = ProgressDialog.show(WeatherMainActivity.this, "로딩 중", "잠시 기달려주세요.",true);
 
         WeatherMainActivity.JsoupAsyncTask jsoupAsyncTask = new WeatherMainActivity.JsoupAsyncTask();
         jsoupAsyncTask.execute();
