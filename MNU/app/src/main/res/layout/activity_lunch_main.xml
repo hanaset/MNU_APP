@@ -12,10 +12,17 @@
             android:text="오늘날짜"
             android:layout_margin="10dp"
             android:textSize="11pt"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/LM_date_text"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:layout_width="250dp" />
+
+        <Button
+            android:text="학식/교수식단"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:id="@+id/LM_teacher_btn" />
     </LinearLayout>
 
     <LinearLayout

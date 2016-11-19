@@ -1,5 +1,6 @@
 package com.example.jeongbin.mnu;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,6 +27,8 @@ import java.util.Date;
 public class LunchMainActivity extends AppCompatActivity {
 
     TextView m_text, l_text, d_text, bm_text, bl_text, bd_text, date_text;
+
+    Button teacher_btn;
 
     String[] morning = new String[7];
     String[] lunch = new String[7];
@@ -88,6 +91,18 @@ public class LunchMainActivity extends AppCompatActivity {
                         setting_menu();
                     }
                 });
+
+                teacher_btn = (Button)findViewById(R.id.LM_teacher_btn);
+
+                teacher_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(LunchMainActivity.this, LunchTeacherActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+
 
 
             }
