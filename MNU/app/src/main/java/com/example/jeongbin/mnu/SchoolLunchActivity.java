@@ -1,5 +1,6 @@
 package com.example.jeongbin.mnu;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,8 +35,6 @@ public class SchoolLunchActivity extends AppCompatActivity {
 
     String url2 = "http://www.mokpo.ac.kr/index.9is?contentUid=402848ef42b36e680142bbed26d102f7";
 
-
-
     String[] morning = new String[7];
     String[] lunch = new String[7];
     String[] dinner = new String[7];
@@ -53,6 +52,8 @@ public class SchoolLunchActivity extends AppCompatActivity {
     String btl_url = "http://dormi.mokpo.ac.kr/www/bbs/board.php?bo_table=food_btl";
 
     public static Handler handler = null;
+
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -77,6 +78,8 @@ public class SchoolLunchActivity extends AppCompatActivity {
 
         tabHost.setCurrentTab(0);
 
+        progressDialog = ProgressDialog.show(SchoolLunchActivity.this, "로딩 중", "잠시 기달려주세요.",true);
+
         SchoolLunchActivity.JsoupAsyncTask jsoupAsyncTask = new SchoolLunchActivity.JsoupAsyncTask();
         jsoupAsyncTask.execute();
 
@@ -94,6 +97,8 @@ public class SchoolLunchActivity extends AppCompatActivity {
                         break;
                     }
                 }
+
+                progressDialog.dismiss();
 
                 setting_menu();
                 setting();
@@ -253,4 +258,5 @@ public class SchoolLunchActivity extends AppCompatActivity {
         str = str.replace(",","");
         return str;
     }
+
 }
