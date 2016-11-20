@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="00:00"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/Bitem_time"
+        android:layout_weight="1"
+        android:layout_width="100dp" />
+
+    <TextView
+        android:text="서광주"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Bitem_start"
+        android:layout_weight="1"
+        android:layout_width="120dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="첨단서라아파트버스승강장(06:50)/남부대정문(06:51)/도림캠퍼스"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Bitem_route"
+        android:layout_weight="1"
+        android:layout_width="300dp"
+        android:textAlignment="center" />
+</LinearLayout>

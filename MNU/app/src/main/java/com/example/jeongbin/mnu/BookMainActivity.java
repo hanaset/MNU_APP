@@ -77,12 +77,14 @@ public class BookMainActivity extends AppCompatActivity {
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
 
+                progressDialog.dismiss();
+
                 if(check_error == 1) {
 
                     list = (ListView) findViewById(R.id.BM_book_list);
                     list.setAdapter(adapter2);
 
-                    progressDialog.dismiss();
+
 
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
@@ -123,11 +125,10 @@ public class BookMainActivity extends AppCompatActivity {
 
                     url = prev_url + subject + next_url + name;
 
-                    BookMainActivity.JsoupAsyncTask jsoupAsyncTask = new BookMainActivity.JsoupAsyncTask();
-                    jsoupAsyncTask.execute();
-
                     progressDialog = ProgressDialog.show(BookMainActivity.this, "로딩 중", "잠시 기달려주세요.",true);
 
+                    BookMainActivity.JsoupAsyncTask jsoupAsyncTask = new BookMainActivity.JsoupAsyncTask();
+                    jsoupAsyncTask.execute();
                 }
             }
         });
