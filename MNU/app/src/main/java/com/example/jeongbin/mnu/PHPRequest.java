@@ -64,6 +64,9 @@ public class PHPRequest {
             conn.setConnectTimeout(5000);
             conn.setDoOutput(true);
             conn.setDoInput(true);
+            OutputStream outputStream = conn.getOutputStream();
+            outputStream.flush();
+            outputStream.close();
             String result = readStream(conn.getInputStream());
             conn.disconnect();
             return result;

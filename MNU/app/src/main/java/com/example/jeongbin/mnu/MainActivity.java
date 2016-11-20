@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        startActivity(new Intent(MainActivity.this, StartActivity.class));
+
+
         NetworkUtil.setNetworkPolicy();
 
         lunch_btn = (ImageButton)findViewById(R.id.M_lunch_btn);
