@@ -4,27 +4,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="글쓴이\n\n출판사\n\n출판연도\n\nISBN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/BIF_text"
-        android:layout_marginTop="22dp"
-        android:layout_alignTop="@+id/BIF_book_image"
-        android:layout_toEndOf="@+id/BIF_book_image"
-        android:layout_marginStart="15dp" />
-
-    <TextView
-        android:text="현재 도서 현황"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:id="@+id/BIF_book_state_text"
-        android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:layout_below="@+id/BIF_book_image"
-        android:layout_alignStart="@+id/BIF_book_image" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -79,16 +58,6 @@
     </LinearLayout>
 
     <TextView
-        android:text="책이름"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:id="@+id/BIF_book_name"
-        android:textSize="9pt"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/BIF_book_image" />
-
-    <TextView
         android:text="글쓴이\n\n출판사\n\n출판연도\n\nISBN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,6 +75,50 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="19dp"
         android:layout_below="@+id/BIF_book_name"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/xml_border"
+        android:adjustViewBounds="false"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:text="현재 도서 현황"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:id="@+id/BIF_book_state_text"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:layout_below="@+id/BIF_book_image"
+        android:layout_alignStart="@+id/BIF_book_image" />
+
+    <TextView
+        android:text="글쓴이\n\n출판사\n\n출판연도\n\nISBN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BIF_text"
+        android:layout_marginTop="38dp"
+        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/BIF_book_image"
+        android:layout_toEndOf="@+id/BIF_book_image" />
+
+    <TextView
+        android:text="책 정보"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BIF_bookinfo_text"
+        android:textSize="13pt"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/BIF_book_image" />
+
+    <TextView
+        android:text="책이름"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:id="@+id/BIF_book_name"
+        android:textSize="9pt"
+        android:layout_below="@+id/BIF_bookinfo_text"
+        android:layout_alignStart="@+id/BIF_bookinfo_text" />
 
 </RelativeLayout>

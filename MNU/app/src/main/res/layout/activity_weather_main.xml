@@ -4,6 +4,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
     <TextView
         android:text="오늘날짜"
         android:textSize="10pt"
@@ -14,6 +18,10 @@
         android:textAlignment="center"
         android:textStyle="normal|bold"
         android:fontFamily="sans-serif" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -89,6 +97,10 @@
         </LinearLayout>
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -162,6 +174,10 @@
 
         </LinearLayout>
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -239,26 +255,32 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:text="오늘 날씨"
-            android:layout_marginTop="70dp"
             android:layout_width="wrap_content"
             android:id="@+id/WM_today_btn"
             android:layout_weight="1"
-            android:layout_height="60dp" />
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="79dp" />
 
         <Button
             android:text="내일 날씨"
-            android:layout_marginTop="70dp"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:id="@+id/WM_nextday_btn"
-            android:layout_weight="1" />
-    </LinearLayout>
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/WM_today_btn"
+            android:layout_marginStart="51dp" />
+    </RelativeLayout>
 
 </LinearLayout>

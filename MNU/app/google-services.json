@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "526697216836",
+    "firebase_url": "https://mnuapp-150203.firebaseio.com",
+    "project_id": "mnuapp-150203",
+    "storage_bucket": "mnuapp-150203.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526697216836:android:7649b865acc161f4",
+        "android_client_info": {
+          "package_name": "com.example.jeongbin.mnu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526697216836-7j8nlmuqo57b96ni03louhqena2u0io6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV9Gko-ec60wefLJKhZ5DYyKlxTOIyijo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
