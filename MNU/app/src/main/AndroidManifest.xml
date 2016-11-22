@@ -28,7 +28,6 @@
                 <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
             <!--</intent-filter>-->
         <!--</service>-->
-        <activity android:name="com.mokpo.jeongbin.mnu.WeatherMainActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.BookMainActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.IntranetActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.BookInfoActivity"></activity>
@@ -36,6 +35,7 @@
         <activity android:name="com.mokpo.jeongbin.mnu.SchoolLunchActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.BusActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.StartActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.WeatherActivity"></activity>
     </application>
 
 </manifest>

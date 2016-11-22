@@ -15,7 +15,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/xml_line_background">
 
             <TextView
                 android:text="소장위치"
@@ -24,7 +25,8 @@
                 android:id="@+id/BIF_book_position"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:textSize="9pt" />
+                android:textSize="9pt"
+                android:background="@drawable/xml_border" />
 
             <TextView
                 android:text="도서상태"
@@ -33,7 +35,8 @@
                 android:id="@+id/BIF_book_state"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:textSize="9pt" />
+                android:textSize="9pt"
+                android:background="@drawable/xml_border" />
 
             <TextView
                 android:text="청구번호"
@@ -42,7 +45,8 @@
                 android:id="@+id/BIF_book_num"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:textSize="9pt" />
+                android:textSize="9pt"
+                android:background="@drawable/xml_border" />
         </LinearLayout>
 
         <LinearLayout
@@ -53,7 +57,8 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/BIF_list" />
+                android:id="@+id/BIF_list"
+                android:background="@drawable/xml_line_background" />
         </LinearLayout>
     </LinearLayout>
 
