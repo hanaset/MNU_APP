@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jeongbin.mnu">
+    package="com.mokpo.jeongbin.mnu">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -10,7 +10,7 @@
         android:label="넌목대생이니"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.mokpo.jeongbin.mnu.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,14 +28,14 @@
                 <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
             <!--</intent-filter>-->
         <!--</service>-->
-        <activity android:name=".WeatherMainActivity"></activity>
-        <activity android:name=".BookMainActivity"></activity>
-        <activity android:name=".IntranetActivity"></activity>
-        <activity android:name=".BookInfoActivity"></activity>
-        <activity android:name=".QAinfoActivity"></activity>
-        <activity android:name=".SchoolLunchActivity"></activity>
-        <activity android:name=".BusActivity"></activity>
-        <activity android:name=".StartActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.WeatherMainActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.BookMainActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.IntranetActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.BookInfoActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.QAinfoActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.SchoolLunchActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.BusActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.StartActivity"></activity>
     </application>
 
 </manifest>
