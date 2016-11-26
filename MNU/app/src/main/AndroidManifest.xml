@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mokpo.jeongbin.mnu">
+    package="com.mokpo.jeongbin.mnu"
+    android:versionCode="2"
+    android:versionName="1.1">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -36,6 +38,7 @@
         <activity android:name="com.mokpo.jeongbin.mnu.BusActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.StartActivity"></activity>
         <activity android:name="com.mokpo.jeongbin.mnu.WeatherActivity"></activity>
+        <activity android:name=".LunchGradeActivity"></activity>
     </application>
 
 </manifest>

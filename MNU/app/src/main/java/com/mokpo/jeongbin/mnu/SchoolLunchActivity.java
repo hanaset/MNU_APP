@@ -1,6 +1,7 @@
 package com.mokpo.jeongbin.mnu;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,6 +30,8 @@ import java.util.Date;
 public class SchoolLunchActivity extends AppCompatActivity {
 
     TextView m_text, l_text, d_text, bm_text, bl_text, bd_text, date_text;
+
+    TextView m_grade, l_grade, d_grade, bm_grade, bl_grade, bd_grade;
 
     TextView mon, tur, wed, thu, fri;
 
@@ -92,7 +96,7 @@ public class SchoolLunchActivity extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
 
                 for(int i = 0; i<7 ;i++){
-                    if(day[i].equals(simpleDateFormat.format(d))){
+                    if(date[i].equals(simpleDateFormat.format(d))){
                         page = i;
                         break;
                     }
@@ -102,6 +106,75 @@ public class SchoolLunchActivity extends AppCompatActivity {
 
                 setting_menu();
                 setting();
+                grade_setting();
+                grade_day_setting();
+
+                bm_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",bm_text.getText().toString());
+                        intent.putExtra("location","BTL");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오전");
+                        startActivity(intent);
+                    }
+                });
+                bl_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",bl_text.getText().toString());
+                        intent.putExtra("location","BTL");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오후");
+                        startActivity(intent);
+                    }
+                });
+                bd_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",bd_text.getText().toString());
+                        intent.putExtra("location","BTL");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","저녁");
+                        startActivity(intent);
+                    }
+                });
+                m_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",m_text.getText().toString());
+                        intent.putExtra("location","한울관");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오전");
+                        startActivity(intent);
+                    }
+                });
+                l_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",l_text.getText().toString());
+                        intent.putExtra("location","한울관");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오후");
+                        startActivity(intent);
+                    }
+                });
+                d_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",d_text.getText().toString());
+                        intent.putExtra("location","한울관");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오후");
+                        startActivity(intent);
+                    }
+                });
             }
         };
 
@@ -116,6 +189,7 @@ public class SchoolLunchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 --page;
                 setting_menu();
+                grade_day_setting();
             }
         });
 
@@ -124,6 +198,7 @@ public class SchoolLunchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ++page;
                 setting_menu();
+                grade_day_setting();
             }
         });
 
@@ -169,8 +244,8 @@ public class SchoolLunchActivity extends AppCompatActivity {
                 links = doc.select("[class=day7]");
 
                 for(int i = 0; i<14; i+=2){
-                    day[i/2] = links.get(i).text();
-                    date[i/2] = links.get(i+1).text();
+                    date[i/2] = links.get(i).text();
+                    day[i/2] = links.get(i+1).text();
                 }
 
                 doc = Jsoup.connect(url2).get();
@@ -233,8 +308,45 @@ public class SchoolLunchActivity extends AppCompatActivity {
         bl_text.setText(btl_lunch[page]);
         bd_text.setText(btl_dinner[page]);
 
-        date_text.setText(day[page] + " [" +date[page]+"]");
+        date_text.setText(date[page] + " [" +day[page]+"]");
 
+    }
+
+    private void grade_day_setting(){
+
+        try {
+            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/menu_grade_output.php");
+            String m_result = request.PhPgrade_output(date[page] + " ["+day[page]+"]","오전");
+            String[] m_string = m_result.split(",");
+
+            bm_grade.setText(check_grade_text(m_string[0]));
+            m_grade.setText(check_grade_text(m_string[1]));
+
+            String l_result = request.PhPgrade_output(date[page] + " ["+day[page]+"]","오후");
+            String[] l_string = l_result.split(",");
+
+            bl_grade.setText(check_grade_text(l_string[0]));
+            l_grade.setText(check_grade_text(l_string[1]));
+
+            String d_result = request.PhPgrade_output(date[page] + " ["+day[page]+"]","저녁");
+            String[] d_string = d_result.split(",");
+
+            bd_grade.setText(check_grade_text(d_string[0]));
+            d_grade.setText(check_grade_text(d_string[1]));
+
+
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    String check_grade_text(String text){
+        if(text.equals("-1")){
+           return "평점 : X";
+        }else{
+            return "평점 : "+text;
+        }
     }
 
     private void setting(){
@@ -259,4 +371,13 @@ public class SchoolLunchActivity extends AppCompatActivity {
         return str;
     }
 
+
+    private void grade_setting() {
+        m_grade = (TextView) findViewById(R.id.SL_m_grade);
+        l_grade = (TextView) findViewById(R.id.SL_l_grade);
+        d_grade = (TextView) findViewById(R.id.SL_d_grade);
+        bm_grade = (TextView) findViewById(R.id.SL_bm_grade);
+        bl_grade = (TextView) findViewById(R.id.SL_bl_grade);
+        bd_grade = (TextView) findViewById(R.id.SL_bd_grade);
+    }
 }

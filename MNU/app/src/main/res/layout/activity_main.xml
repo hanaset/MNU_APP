@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jeongbin.mnu.com.mokpo.jeongbin.mnu.MainActivity"
+    tools:context="com.mokpo.jeongbin.mnu.MainActivity"
     android:background="@android:color/background_light"
     android:orientation="vertical">
 
