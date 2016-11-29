@@ -148,7 +148,8 @@
                             android:id="@+id/SL_bmorning_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
-                            android:layout_height="110dp" />
+                            android:layout_height="110dp"
+                            android:textSize="7pt" />
 
                         <TextView
                             android:text="TextView"
@@ -156,7 +157,8 @@
                             android:id="@+id/SL_morning_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
-                            android:layout_height="110dp" />
+                            android:layout_height="110dp"
+                            android:textSize="7pt" />
                     </LinearLayout>
 
                     <FrameLayout
@@ -210,7 +212,8 @@
                             android:id="@+id/SL_blunch_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
-                            android:layout_height="110dp" />
+                            android:layout_height="110dp"
+                            android:textSize="7pt" />
 
                         <TextView
                             android:text="TextView"
@@ -218,7 +221,8 @@
                             android:id="@+id/SL_lunch_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
-                            android:layout_height="110dp" />
+                            android:layout_height="110dp"
+                            android:textSize="7pt" />
                     </LinearLayout>
 
                     <FrameLayout
@@ -273,7 +277,8 @@
                             android:id="@+id/SL_bdinner_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
-                            android:layout_height="110dp" />
+                            android:layout_height="110dp"
+                            android:textSize="7pt" />
 
                         <TextView
                             android:text="TextView"
@@ -281,7 +286,8 @@
                             android:id="@+id/SL_dinner_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
-                            android:layout_height="110dp" />
+                            android:layout_height="110dp"
+                            android:textSize="7pt" />
                     </LinearLayout>
 
                 </LinearLayout>

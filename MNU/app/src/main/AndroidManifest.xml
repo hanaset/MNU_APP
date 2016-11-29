@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mokpo.jeongbin.mnu"
-    android:versionCode="2"
-    android:versionName="1.1">
+    android:versionCode="3"
+    android:versionName="1.5">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -12,7 +12,8 @@
         android:label="넌목대생이니"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.mokpo.jeongbin.mnu.MainActivity">
+        <activity android:name="com.mokpo.jeongbin.mnu.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,15 +31,24 @@
                 <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
             <!--</intent-filter>-->
         <!--</service>-->
-        <activity android:name="com.mokpo.jeongbin.mnu.BookMainActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.IntranetActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.BookInfoActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.QAinfoActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.SchoolLunchActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.BusActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.StartActivity"></activity>
-        <activity android:name="com.mokpo.jeongbin.mnu.WeatherActivity"></activity>
-        <activity android:name=".LunchGradeActivity"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.BookMainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.IntranetActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.BookInfoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.QAinfoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.SchoolLunchActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.BusActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.StartActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name="com.mokpo.jeongbin.mnu.WeatherActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".LunchGradeActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

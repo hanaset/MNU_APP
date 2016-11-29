@@ -87,10 +87,14 @@ public class SchoolLunchActivity extends AppCompatActivity {
         SchoolLunchActivity.JsoupAsyncTask jsoupAsyncTask = new SchoolLunchActivity.JsoupAsyncTask();
         jsoupAsyncTask.execute();
 
+        progressDialog.dismiss();
+
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
+
+
 
                 Date d = new Date();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
@@ -102,7 +106,155 @@ public class SchoolLunchActivity extends AppCompatActivity {
                     }
                 }
 
+
+
+                setting_menu();
+                setting();
+                grade_setting();
+                grade_day_setting();
+
+                bm_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",bm_text.getText().toString());
+                        intent.putExtra("location","BTL");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오전");
+                        startActivity(intent);
+                    }
+                });
+                bl_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",bl_text.getText().toString());
+                        intent.putExtra("location","BTL");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오후");
+                        startActivity(intent);
+                    }
+                });
+                bd_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",bd_text.getText().toString());
+                        intent.putExtra("location","BTL");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","저녁");
+                        startActivity(intent);
+                    }
+                });
+                m_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",m_text.getText().toString());
+                        intent.putExtra("location","한울관");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오전");
+                        startActivity(intent);
+                    }
+                });
+                l_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",l_text.getText().toString());
+                        intent.putExtra("location","한울관");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","오후");
+                        startActivity(intent);
+                    }
+                });
+                d_text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
+                        intent.putExtra("menu",d_text.getText().toString());
+                        intent.putExtra("location","한울관");
+                        intent.putExtra("date", date_text.getText().toString());
+                        intent.putExtra("day","저녁");
+                        startActivity(intent);
+                    }
+                });
+            }
+        };
+
+        Button back_btn, next_btn;
+
+        back_btn = (Button)findViewById(R.id.SL_prev_btn);
+        next_btn = (Button)findViewById(R.id.SL_next_btn);
+
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                --page;
+                setting_menu();
+                grade_day_setting();
+            }
+        });
+
+        next_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ++page;
+                setting_menu();
+                grade_day_setting();
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setContentView(R.layout.activity_school_lunch);
+        setTitle("오늘 급식은 어떠니?");
+
+        TabHost tabHost = (TabHost)findViewById(R.id.SL_tabhost);
+        tabHost.setup();
+
+        TabHost.TabSpec first = tabHost.newTabSpec("first");
+        first.setIndicator("기숙사 식당");
+        first.setContent(R.id.SL_tab1);
+        tabHost.addTab(first);
+
+
+        TabHost.TabSpec second = tabHost.newTabSpec("second");
+        second.setIndicator("학식 및 교수식당");
+        second.setContent(R.id.SL_tab2);
+        tabHost.addTab(second);
+
+        tabHost.setCurrentTab(0);
+
+        progressDialog = ProgressDialog.show(SchoolLunchActivity.this, "로딩 중", "잠시 기달려주세요.",true);
+
+        SchoolLunchActivity.JsoupAsyncTask jsoupAsyncTask = new SchoolLunchActivity.JsoupAsyncTask();
+        jsoupAsyncTask.execute();
+
+        handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+
                 progressDialog.dismiss();
+
+                Date d = new Date();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
+
+                for(int i = 0; i<7 ;i++){
+                    if(date[i].equals(simpleDateFormat.format(d))){
+                        page = i;
+                        break;
+                    }
+                }
+
+
 
                 setting_menu();
                 setting();
@@ -201,9 +353,8 @@ public class SchoolLunchActivity extends AppCompatActivity {
                 grade_day_setting();
             }
         });
-
-
     }
+
 
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
