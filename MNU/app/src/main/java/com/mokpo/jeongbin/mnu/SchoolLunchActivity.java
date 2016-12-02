@@ -97,7 +97,7 @@ public class SchoolLunchActivity extends AppCompatActivity {
 
 
                 Date d = new Date();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("M월 d일");
 
                 for(int i = 0; i<7 ;i++){
                     if(date[i].equals(simpleDateFormat.format(d))){
@@ -245,7 +245,7 @@ public class SchoolLunchActivity extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 Date d = new Date();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM월 dd일");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("M월 d일");
 
                 for(int i = 0; i<7 ;i++){
                     if(date[i].equals(simpleDateFormat.format(d))){

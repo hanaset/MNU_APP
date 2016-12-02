@@ -123,7 +123,8 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginStart="68dp"
-                                android:textAlignment="center" />
+                                android:textAlignment="center"
+                                android:maxLength="9" />
 
                             <TextView
                                 android:text="평점 :"
@@ -133,7 +134,8 @@
                                 android:layout_marginEnd="72dp"
                                 android:textAlignment="center"
                                 android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true" />
+                                android:layout_alignParentEnd="true"
+                                android:maxLength="9" />
                         </RelativeLayout>
                     </FrameLayout>
 
@@ -144,21 +146,23 @@
 
                         <TextView
                             android:text="TextView"
+                            android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:id="@+id/SL_bmorning_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
                             android:layout_height="110dp"
-                            android:textSize="7pt" />
+                            android:textSize="6pt" />
 
                         <TextView
                             android:text="TextView"
+                            android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:id="@+id/SL_morning_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
                             android:layout_height="110dp"
-                            android:textSize="7pt" />
+                            android:textSize="6pt" />
                     </LinearLayout>
 
                     <FrameLayout
@@ -187,7 +191,8 @@
                                 android:layout_marginEnd="66dp"
                                 android:textAlignment="center"
                                 android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true" />
+                                android:layout_alignParentEnd="true"
+                                android:maxLength="9" />
 
                             <TextView
                                 android:text="평점 :"
@@ -197,7 +202,8 @@
                                 android:layout_marginStart="66dp"
                                 android:textAlignment="center"
                                 android:layout_alignParentTop="true"
-                                android:layout_alignParentStart="true" />
+                                android:layout_alignParentStart="true"
+                                android:maxLength="9" />
                         </RelativeLayout>
                     </FrameLayout>
 
@@ -208,21 +214,23 @@
 
                         <TextView
                             android:text="TextView"
+                            android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:id="@+id/SL_blunch_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
                             android:layout_height="110dp"
-                            android:textSize="7pt" />
+                            android:textSize="6pt" />
 
                         <TextView
                             android:text="TextView"
+                            android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:id="@+id/SL_lunch_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
                             android:layout_height="110dp"
-                            android:textSize="7pt" />
+                            android:textSize="6pt" />
                     </LinearLayout>
 
                     <FrameLayout
@@ -251,7 +259,8 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginEnd="67dp"
-                                android:textAlignment="center" />
+                                android:textAlignment="center"
+                                android:maxLength="9" />
 
                             <TextView
                                 android:text="평점 :"
@@ -261,7 +270,8 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginStart="68dp"
-                                android:textAlignment="center" />
+                                android:textAlignment="center"
+                                android:maxLength="9" />
                         </RelativeLayout>
 
                     </FrameLayout>
@@ -273,21 +283,23 @@
 
                         <TextView
                             android:text="TextView"
+                            android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:id="@+id/SL_bdinner_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
                             android:layout_height="110dp"
-                            android:textSize="7pt" />
+                            android:textSize="6pt" />
 
                         <TextView
                             android:text="TextView"
+                            android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:id="@+id/SL_dinner_menu"
                             android:layout_weight="1"
                             android:textAlignment="center"
                             android:layout_height="110dp"
-                            android:textSize="7pt" />
+                            android:textSize="6pt" />
                     </LinearLayout>
 
                 </LinearLayout>

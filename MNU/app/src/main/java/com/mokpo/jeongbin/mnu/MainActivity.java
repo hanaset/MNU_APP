@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
         @Override

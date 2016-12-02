@@ -93,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:inputType="textPersonName"
-        android:maxLength="60"
+        android:maxLength="30"
         android:ems="10"
         android:id="@+id/LG_grade_edit"
         android:textAlignment="center"
