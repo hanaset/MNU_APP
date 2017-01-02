@@ -370,26 +370,39 @@ public class SchoolLunchActivity extends AppCompatActivity {
                 Elements links = doc.select("[width=28%]");
 
                 //morning = links.text();
+                links.size();
 
                 for(int i = 6 ; i <27; i+=3){
-                    morning[(i-6)/3] = links.get(i).text();
-                    morning[(i-6)/3] = morning[(i-6)/3].replace(" ","\n");
-                    lunch[(i-6)/3] = links.get(i+1).text();
-                    lunch[(i-6)/3] = lunch[(i-6)/3].replace(" ","\n");
-                    dinner[(i-6)/3] = links.get(i+2).text();
-                    dinner[(i-6)/3] = dinner[(i-6)/3].replace(" ","\n");
+                    if(i<links.size()) {
+                        morning[(i - 6) / 3] = links.get(i).text();
+                        morning[(i - 6) / 3] = morning[(i - 6) / 3].replace(" ", "\n");
+                        lunch[(i - 6) / 3] = links.get(i + 1).text();
+                        lunch[(i - 6) / 3] = lunch[(i - 6) / 3].replace(" ", "\n");
+                        dinner[(i - 6) / 3] = links.get(i + 2).text();
+                        dinner[(i - 6) / 3] = dinner[(i - 6) / 3].replace(" ", "\n");
+                    }else{
+                        morning[(i - 6) / 3] = "없음";
+                        lunch[(i - 6) / 3] = "없음";
+                        dinner[(i - 6) / 3] = "없음";
+                    }
                 }
 
                 doc = Jsoup.connect(btl_url).get();
                 links = doc.select("[width=28%]");
 
                 for(int i = 6 ; i <27; i+=3){
-                    btl_morning[(i-6)/3] = links.get(i).text();
-                    btl_morning[(i-6)/3] = btl_morning[(i-6)/3].replace(" ","\n");
-                    btl_lunch[(i-6)/3] = links.get(i+1).text();
-                    btl_lunch[(i-6)/3] = btl_lunch[(i-6)/3].replace(" ","\n");
-                    btl_dinner[(i-6)/3] = links.get(i+2).text();
-                    btl_dinner[(i-6)/3] = btl_dinner[(i-6)/3].replace(" ","\n");
+                    if(i<links.size()) {
+                        btl_morning[(i - 6) / 3] = links.get(i).text();
+                        btl_morning[(i - 6) / 3] = btl_morning[(i - 6) / 3].replace(" ", "\n");
+                        btl_lunch[(i - 6) / 3] = links.get(i + 1).text();
+                        btl_lunch[(i - 6) / 3] = btl_lunch[(i - 6) / 3].replace(" ", "\n");
+                        btl_dinner[(i - 6) / 3] = links.get(i + 2).text();
+                        btl_dinner[(i - 6) / 3] = btl_dinner[(i - 6) / 3].replace(" ", "\n");
+                    }else{
+                        btl_morning[(i - 6) / 3] = "없음";
+                        btl_lunch[(i - 6) / 3] = "없음";
+                        btl_dinner[(i - 6) / 3] = "없음";
+                    }
                 }
 
                 links = doc.select("[class=day7]");
