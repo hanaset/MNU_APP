@@ -3,20 +3,20 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'Myandroidkey'
+            keyAlias 'key0'
             keyPassword 'wjdqls56'
-            storeFile file('C:/Users/JeongBin/Desktop/Project/key/android.jks')
+            storeFile file('C:/Users/b1835/Desktop/GitHub/MNU/MNU/apkfile.jks')
             storePassword 'wjdqls56'
         }
     }
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
     defaultConfig {
-        applicationId "com.mokpo.jeongbin.mnu"
+        applicationId "asio.mokpo.jeongbin.mnu"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 7
-        versionName "1.8`"
+        versionCode 1
+        versionName "1.0`"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -37,6 +37,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'org.jsoup:jsoup:1.7.3'
     compile files('libs/StartAppInApp-3.5.3.jar')
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:gridlayout-v7:25.3.1'
 }
 
 

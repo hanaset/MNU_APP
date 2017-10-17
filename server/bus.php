@@ -1,22 +1,23 @@
 <?php
 	header("Content-Type: text/html;charset=UTF-8");
 
-	$conn = new mysqli("114.70.93.130", "root", "wjdqls56", "mnu");
-// Check connection
-	if ($conn->connect_error) {
-   		die("Connection failed: " . $conn->connect_error);
-	} 
+	$mysql_username = 'root';
+	$mysql_password = 'wjdqls56';
+	$mysql_database = 'mnu';
 
+	$conn = mysqli_connect("127.0.0.1",$mysql_username,$mysql_password,$mysql_database);
 
+	if(!$conn){
+		die("Connection failed: ". mysqli_connect_error());
+	}
 
 	$sql = "SELECT * FROM bus";
-
-	$result = $conn->query($sql);
-
+	$result = mysqli_query($conn, $sql);
 	$text = array();
 
-	if($result->num_rows > 0){
-		while($row = $result->fetch_assoc()){
+
+	if(mysqli_num_rows($result) > 0){
+		while($row = mysqli_fetch_assoc($result)){
 			array_push($text, array('go_come'=>$row["go_come"],'time'=>$row["time"], 'location'=>$row["location"], 'start'=>$row["start"], 'route'=>$row["route"]));
 		}
 	
@@ -28,5 +29,5 @@
 		echo "-1";
 	}
 
-	$conn->close();
+	mysqli_close($conn);
 ?>

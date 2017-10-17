@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mokpo.jeongbin.mnu"
+    package="asio.mokpo.jeongbin.mnu"
     android:versionCode="5"
     android:versionName="1.6">
 
@@ -12,7 +12,7 @@
         android:label="넌목대생이니"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.mokpo.jeongbin.mnu.MainActivity"
+        <activity android:name="asio.mokpo.jeongbin.mnu.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
