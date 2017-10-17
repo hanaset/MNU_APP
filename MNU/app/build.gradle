@@ -12,11 +12,11 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
     defaultConfig {
-        applicationId "com.example.jeongbin.mnu"
-        minSdkVersion 21
+        applicationId "com.mokpo.jeongbin.mnu"
+        minSdkVersion 19
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 7
+        versionName "1.8`"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -36,7 +36,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'org.jsoup:jsoup:1.7.3'
+    compile files('libs/StartAppInApp-3.5.3.jar')
 }
 
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

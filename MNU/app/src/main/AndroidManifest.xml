@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jeongbin.mnu">
+    package="com.mokpo.jeongbin.mnu"
+    android:versionCode="5"
+    android:versionName="1.6">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -10,32 +12,34 @@
         android:label="넌목대생이니"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.mokpo.jeongbin.mnu.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<service android:name=".FirebaseMessageingService">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.google.firebase.MESSAGING_EVENT"/>-->
-            <!--</intent-filter>-->
-        <!--</service>-->
 
-        <!--<service android:name=".FirebaseInstanceIDService">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
-            <!--</intent-filter>-->
-        <!--</service>-->
-        <activity android:name=".WeatherMainActivity"></activity>
-        <activity android:name=".BookMainActivity"></activity>
-        <activity android:name=".IntranetActivity"></activity>
-        <activity android:name=".BookInfoActivity"></activity>
-        <activity android:name=".QAinfoActivity"></activity>
-        <activity android:name=".SchoolLunchActivity"></activity>
-        <activity android:name=".BusActivity"></activity>
-        <activity android:name=".StartActivity"></activity>
+
+        <activity android:name=".BookMainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".IntranetActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".BookInfoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".QAinfoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".SchoolLunchActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".BusActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".StartActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".WeatherActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".LunchGradeActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
