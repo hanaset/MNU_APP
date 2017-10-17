@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 String test  = links.text();
                 String[] test2 = test.split(" ");
 
-                tmp = test2[0] +" "+ test2[1] +" "+ test2[2] + " " + test2[3];
+                tmp = test2[1] +" "+ test2[2] + " " + test2[3];
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -38,8 +38,6 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".WeatherActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".LunchGradeActivity"
-            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

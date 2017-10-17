@@ -31,8 +31,6 @@ public class SchoolLunchActivity extends AppCompatActivity {
 
     TextView m_text, l_text, d_text, bm_text, bl_text, bd_text, date_text;
 
-    TextView m_grade, l_grade, d_grade, bm_grade, bl_grade, bd_grade;
-
     TextView mon, tur, wed, thu, fri;
 
     String Tmon, Ttur, Twed, Tthu, Tfri;
@@ -87,246 +85,26 @@ public class SchoolLunchActivity extends AppCompatActivity {
         SchoolLunchActivity.JsoupAsyncTask jsoupAsyncTask = new SchoolLunchActivity.JsoupAsyncTask();
         jsoupAsyncTask.execute();
 
-        progressDialog.dismiss();
-
         handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
 
-
-
                 Date d = new Date();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("M월 d일");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d일");
+                SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("M월 ");
 
                 for(int i = 0; i<7 ;i++){
-                    if(date[i].equals(simpleDateFormat.format(d))){
+                    date[i] = simpleDateFormat1.format(d) + date[i];
+                    if(date[i].contains(simpleDateFormat.format(d))){
                         page = i;
-                        break;
                     }
                 }
 
-
-
                 setting_menu();
                 setting();
-                grade_setting();
-                grade_day_setting();
-
-                bm_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",bm_text.getText().toString());
-                        intent.putExtra("location","BTL");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오전");
-                        startActivity(intent);
-                    }
-                });
-                bl_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",bl_text.getText().toString());
-                        intent.putExtra("location","BTL");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오후");
-                        startActivity(intent);
-                    }
-                });
-                bd_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",bd_text.getText().toString());
-                        intent.putExtra("location","BTL");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","저녁");
-                        startActivity(intent);
-                    }
-                });
-                m_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",m_text.getText().toString());
-                        intent.putExtra("location","한울관");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오전");
-                        startActivity(intent);
-                    }
-                });
-                l_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",l_text.getText().toString());
-                        intent.putExtra("location","한울관");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오후");
-                        startActivity(intent);
-                    }
-                });
-                d_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",d_text.getText().toString());
-                        intent.putExtra("location","한울관");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","저녁");
-                        startActivity(intent);
-                    }
-                });
-            }
-        };
-
-        Button back_btn, next_btn;
-
-        back_btn = (Button)findViewById(R.id.SL_prev_btn);
-        next_btn = (Button)findViewById(R.id.SL_next_btn);
-
-
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                --page;
-                setting_menu();
-                grade_day_setting();
-            }
-        });
-
-        next_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ++page;
-                setting_menu();
-                grade_day_setting();
-            }
-        });
-
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        setContentView(R.layout.activity_school_lunch);
-        setTitle("오늘 급식은 어떠니?");
-
-        TabHost tabHost = (TabHost)findViewById(R.id.SL_tabhost);
-        tabHost.setup();
-
-        TabHost.TabSpec first = tabHost.newTabSpec("first");
-        first.setIndicator("기숙사 식당");
-        first.setContent(R.id.SL_tab1);
-        tabHost.addTab(first);
-
-
-        TabHost.TabSpec second = tabHost.newTabSpec("second");
-        second.setIndicator("학식 및 교수식당");
-        second.setContent(R.id.SL_tab2);
-        tabHost.addTab(second);
-
-        tabHost.setCurrentTab(0);
-
-        progressDialog = ProgressDialog.show(SchoolLunchActivity.this, "로딩 중", "잠시 기달려주세요.",true);
-
-        SchoolLunchActivity.JsoupAsyncTask jsoupAsyncTask = new SchoolLunchActivity.JsoupAsyncTask();
-        jsoupAsyncTask.execute();
-
-        handler = new Handler(){
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
 
                 progressDialog.dismiss();
-
-                Date d = new Date();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("M월 d일");
-
-                for(int i = 0; i<7 ;i++){
-                    if(date[i].equals(simpleDateFormat.format(d))){
-                        page = i;
-                        break;
-                    }
-                }
-
-
-
-                setting_menu();
-                setting();
-                grade_setting();
-                grade_day_setting();
-
-                bm_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",bm_text.getText().toString());
-                        intent.putExtra("location","BTL");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오전");
-                        startActivity(intent);
-                    }
-                });
-                bl_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",bl_text.getText().toString());
-                        intent.putExtra("location","BTL");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오후");
-                        startActivity(intent);
-                    }
-                });
-                bd_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",bd_text.getText().toString());
-                        intent.putExtra("location","BTL");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","저녁");
-                        startActivity(intent);
-                    }
-                });
-                m_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",m_text.getText().toString());
-                        intent.putExtra("location","한울관");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오전");
-                        startActivity(intent);
-                    }
-                });
-                l_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",l_text.getText().toString());
-                        intent.putExtra("location","한울관");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오후");
-                        startActivity(intent);
-                    }
-                });
-                d_text.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SchoolLunchActivity.this, LunchGradeActivity.class);
-                        intent.putExtra("menu",d_text.getText().toString());
-                        intent.putExtra("location","한울관");
-                        intent.putExtra("date", date_text.getText().toString());
-                        intent.putExtra("day","오후");
-                        startActivity(intent);
-                    }
-                });
             }
         };
 
@@ -341,7 +119,6 @@ public class SchoolLunchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 --page;
                 setting_menu();
-                grade_day_setting();
             }
         });
 
@@ -350,9 +127,10 @@ public class SchoolLunchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ++page;
                 setting_menu();
-                grade_day_setting();
             }
         });
+
+
     }
 
 
@@ -367,43 +145,14 @@ public class SchoolLunchActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             try {
                 Document doc = Jsoup.connect(url).get();
-                Elements links = doc.select("[width=28%]");
+                Elements links = doc.select("td");
 
-                //morning = links.text();
-                links.size();
-
-                for(int i = 6 ; i <27; i+=3){
-                    if(i<links.size()) {
-                        morning[(i - 6) / 3] = links.get(i).text();
-                        morning[(i - 6) / 3] = morning[(i - 6) / 3].replace(" ", "\n");
-                        lunch[(i - 6) / 3] = links.get(i + 1).text();
-                        lunch[(i - 6) / 3] = lunch[(i - 6) / 3].replace(" ", "\n");
-                        dinner[(i - 6) / 3] = links.get(i + 2).text();
-                        dinner[(i - 6) / 3] = dinner[(i - 6) / 3].replace(" ", "\n");
-                    }else{
-                        morning[(i - 6) / 3] = "없음";
-                        lunch[(i - 6) / 3] = "없음";
-                        dinner[(i - 6) / 3] = "없음";
-                    }
-                }
+                menu_text_setting(links, morning,lunch,dinner);
 
                 doc = Jsoup.connect(btl_url).get();
-                links = doc.select("[width=28%]");
+                links = doc.select("td");
 
-                for(int i = 6 ; i <27; i+=3){
-                    if(i<links.size()) {
-                        btl_morning[(i - 6) / 3] = links.get(i).text();
-                        btl_morning[(i - 6) / 3] = btl_morning[(i - 6) / 3].replace(" ", "\n");
-                        btl_lunch[(i - 6) / 3] = links.get(i + 1).text();
-                        btl_lunch[(i - 6) / 3] = btl_lunch[(i - 6) / 3].replace(" ", "\n");
-                        btl_dinner[(i - 6) / 3] = links.get(i + 2).text();
-                        btl_dinner[(i - 6) / 3] = btl_dinner[(i - 6) / 3].replace(" ", "\n");
-                    }else{
-                        btl_morning[(i - 6) / 3] = "없음";
-                        btl_lunch[(i - 6) / 3] = "없음";
-                        btl_dinner[(i - 6) / 3] = "없음";
-                    }
-                }
+                menu_text_setting(links, btl_morning, btl_lunch, btl_dinner);
 
                 links = doc.select("[class=day7]");
 
@@ -438,6 +187,24 @@ public class SchoolLunchActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             handler.sendEmptyMessage(0);
         }
+    }
+
+    private void menu_text_setting(Elements links, String[] morning, String[] lunch, String[] dinner){
+        for(int i = 9 ; i < 36; i+=4){
+            if(i<links.size()) {
+                morning[(i - 9) / 4] = links.get(i+1).text();
+                morning[(i - 9) / 4] = morning[(i - 9) / 4].replace(" ", "\n");
+                lunch[(i - 9) / 4] = links.get(i+2).text();
+                lunch[(i - 9) / 4] = lunch[(i - 9) / 4].replace(" ", "\n");
+                dinner[(i - 9) / 4] = links.get(i+3).text();
+                dinner[(i - 9) / 4] = dinner[(i - 9) / 4].replace(" ", "\n");
+            }else{
+                morning[(i - 9) / 4] = "없음";
+                lunch[(i - 9) / 4] = "없음";
+                dinner[(i - 9) / 4] = "없음";
+            }
+        }
+
     }
 
     private void setting_menu(){
@@ -476,43 +243,6 @@ public class SchoolLunchActivity extends AppCompatActivity {
 
     }
 
-    private void grade_day_setting(){
-
-        try {
-            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/menu_grade_output.php");
-            String m_result = request.PhPgrade_output(date[page] + " ["+day[page]+"]","오전");
-            String[] m_string = m_result.split(",");
-
-            bm_grade.setText(check_grade_text(m_string[0]));
-            m_grade.setText(check_grade_text(m_string[1]));
-
-            String l_result = request.PhPgrade_output(date[page] + " ["+day[page]+"]","오후");
-            String[] l_string = l_result.split(",");
-
-            bl_grade.setText(check_grade_text(l_string[0]));
-            l_grade.setText(check_grade_text(l_string[1]));
-
-            String d_result = request.PhPgrade_output(date[page] + " ["+day[page]+"]","저녁");
-            String[] d_string = d_result.split(",");
-
-            bd_grade.setText(check_grade_text(d_string[0]));
-            d_grade.setText(check_grade_text(d_string[1]));
-
-
-        }catch (MalformedURLException e){
-            e.printStackTrace();
-        }
-
-    }
-
-    String check_grade_text(String text){
-        if(text.equals("-1")){
-           return "평점 : X";
-        }else{
-            return "평점 : "+text;
-        }
-    }
-
     private void setting(){
         mon = (TextView)findViewById(R.id.SL2_mon_menu);
         tur = (TextView)findViewById(R.id.SL2_tur_menu);
@@ -533,15 +263,5 @@ public class SchoolLunchActivity extends AppCompatActivity {
         str = str.replace(" ","\n");
         str = str.replace(",","");
         return str;
-    }
-
-
-    private void grade_setting() {
-        m_grade = (TextView) findViewById(R.id.SL_m_grade);
-        l_grade = (TextView) findViewById(R.id.SL_l_grade);
-        d_grade = (TextView) findViewById(R.id.SL_d_grade);
-        bm_grade = (TextView) findViewById(R.id.SL_bm_grade);
-        bl_grade = (TextView) findViewById(R.id.SL_bl_grade);
-        bd_grade = (TextView) findViewById(R.id.SL_bd_grade);
     }
 }

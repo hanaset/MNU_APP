@@ -14,12 +14,12 @@ import java.net.MalformedURLException;
  * Created by JeongBin on 2016-11-20.
  */
 
-public class DBHelper extends SQLiteOpenHelper {
+public class BusDB extends SQLiteOpenHelper {
     // DBHelper 생성자로 관리할 DB 이름과 버전 정보를 받음
 
     JSONArray busArray = null;
 
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public BusDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 

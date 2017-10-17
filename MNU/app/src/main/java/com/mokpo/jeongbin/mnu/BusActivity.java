@@ -61,18 +61,17 @@ public class BusActivity extends AppCompatActivity {
 
         tabHost.setCurrentTab(0);
 
-        final DBHelper dbHelper = new DBHelper(getApplicationContext(),"MNU.db",null, 1);
+        final BusDB Busdb = new BusDB(getApplicationContext(),"MNU.db",null, 1);
 
         try{
-            db = dbHelper.getReadableDatabase();
+            db = Busdb.getReadableDatabase();
 
             spinner_setting1();
 
         }catch (SQLiteException e){
             e.printStackTrace();
 
-            dbHelper.onCreate(db);
-          //  finish();
+            Busdb.onCreate(db);
         }
 
     }
