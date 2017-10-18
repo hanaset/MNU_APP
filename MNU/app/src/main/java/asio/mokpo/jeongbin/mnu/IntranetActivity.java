@@ -5,9 +5,6 @@ import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-/*
-* by ggomi 11_18
- */
 
 public class IntranetActivity extends Activity{
 
@@ -25,12 +22,13 @@ public class IntranetActivity extends Activity{
         mWebView.getSettings().setBuiltInZoomControls(true); //확대축소 버튼
         mWebView.getSettings().setSupportZoom(true); //확대축소 지원
 
-
+        // WebViewClient 지정
+        mWebView.setWebViewClient(new WebViewClientClass());
         // Url 설정
         mWebView.loadUrl("http://dormsys.mokpo.ac.kr/system/user/login.php");
 
-        // WebViewClient 지정
-        mWebView.setWebViewClient(new WebViewClientClass());
+
+
 
     }
 
@@ -46,6 +44,7 @@ public class IntranetActivity extends Activity{
     private class WebViewClientClass extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            //view.setWebViewClient(new WebViewClientClass());
             view.loadUrl(url);
             return true;
         }

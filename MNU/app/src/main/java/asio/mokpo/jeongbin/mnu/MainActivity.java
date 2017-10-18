@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout dlDrawer;
     ActionBarDrawerToggle dtToggle;
     ListView listView;
-    String[] ListItem = {"오늘의 날씨", "기숙사 인트라넷", "학교 지도", "중앙도서관 검색", "문의하기"};
+    String[] ListItem = {"오늘의 날씨", "학교 인트라넷", "기숙사 인트라넷", "학교 지도", "중앙도서관 검색", "문의하기"};
+    final int Weather = 0, School_intranet = 1, Intranet = 2, School_map = 3, Book_search = 4, Qa = 5;
 
     public static Handler handler = null;
 
@@ -118,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
                 backdoor_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                       // Intent intent = new Intent(MainActivity.this, IntranetActivity.class);
-                       // startActivity(intent);
+                   //     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://intra.mokpo.ac.kr:7777/mobile/Login.htm"));
+                   //     startActivity(intent);
                     }
                 });
 
@@ -198,26 +200,32 @@ public class MainActivity extends AppCompatActivity {
     private void selectItem(int position){
         Intent intent;
         switch(position){
-            case 0: // 오늘의 날씨
+            case Weather: // 오늘의 날씨
                 intent = new Intent(MainActivity.this, WeatherActivity.class);
                 startActivity(intent);
                 break;
-            case 1: // 기숙사 인트라넷
+            case School_intranet:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://intra.mokpo.ac.kr:7777/mobile/Login.htm"));
+                startActivity(intent);
+                break;
+            case Intranet: // 기숙사 인트라넷
                 intent = new Intent(MainActivity.this, IntranetActivity.class);
                 startActivity(intent);
                 break;
-            case 2: // 학교 지도
+            case School_map: // 학교 지도
                 intent = new Intent(MainActivity.this, SchoolMapActivity.class);
                 startActivity(intent);
                 break;
-            case 3: // 중앙 도서관 책 검색
+            case Book_search: // 중앙 도서관 책 검색
                 intent = new Intent(MainActivity.this, BookMainActivity.class);
                 startActivity(intent);
                 break;
-            case 4: // 문의하기
+            case Qa: // 문의하기
                 intent = new Intent(MainActivity.this, QAinfoActivity.class);
                 startActivity(intent);
                 break;
         }
     }
 }
+
+
