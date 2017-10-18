@@ -38,6 +38,8 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".WeatherActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".SchoolMapActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

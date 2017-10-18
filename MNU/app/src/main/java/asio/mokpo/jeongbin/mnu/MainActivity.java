@@ -28,14 +28,14 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton lunch_btn, weather_btn, bus_btn, book_btn,intranet_btn,qa_btn;
+    ImageButton lunch_btn, bus_btn, book_btn,intranet_btn;
     TextView weather_text ;
     String tmp;
     Toolbar toolbar;
     DrawerLayout dlDrawer;
     ActionBarDrawerToggle dtToggle;
     ListView listView;
-    String[] ListItem = {"오늘의 날씨", "기숙사 인트라넷", "중앙도서관 검색", "문의하기"};
+    String[] ListItem = {"오늘의 날씨", "기숙사 인트라넷", "학교 지도", "중앙도서관 검색", "문의하기"};
 
     public static Handler handler = null;
 
@@ -67,11 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         lunch_btn = (ImageButton)findViewById(R.id.M_lunch_btn);
-        weather_btn = (ImageButton)findViewById(R.id.M_weather_btn);
         bus_btn = (ImageButton)findViewById(R.id.M_bus_btn);
         book_btn = (ImageButton)findViewById(R.id.M_book_btn);
         intranet_btn = (ImageButton)findViewById(R.id.M_intranet_btn);
-        qa_btn = (ImageButton)findViewById(R.id.M_QA_Btn);
 
         weather_text = (TextView)findViewById(R.id.M_weather);
 
@@ -94,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView)findViewById(R.id.M_bus_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_lunch_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_book_text)).setTypeface(typeface);
-                ((TextView)findViewById(R.id.M_weather_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_intranet_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_weather)).setTypeface(typeface);
 
@@ -106,14 +103,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(MainActivity.this, SchoolLunchActivity.class);
-                        startActivity(intent);
-                    }
-                });
-
-                weather_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -130,14 +119,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(MainActivity.this, IntranetActivity.class);
-                        startActivity(intent);
-                    }
-                });
-
-                qa_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, QAinfoActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -225,11 +206,15 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, IntranetActivity.class);
                 startActivity(intent);
                 break;
-            case 2: // 중앙 도서관 책 검색
+            case 2: // 학교 지도
+                intent = new Intent(MainActivity.this, SchoolMapActivity.class);
+                startActivity(intent);
+                break;
+            case 3: // 중앙 도서관 책 검색
                 intent = new Intent(MainActivity.this, BookMainActivity.class);
                 startActivity(intent);
                 break;
-            case 3: // 문의하기
+            case 4: // 문의하기
                 intent = new Intent(MainActivity.this, QAinfoActivity.class);
                 startActivity(intent);
                 break;
