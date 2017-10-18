@@ -159,7 +159,7 @@
                             android:layout_weight="1"
                             android:background="@android:color/background_light"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/lunch_btn" />
+                            app:srcCompat="@drawable/weather_btn" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -171,7 +171,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:text="목대 후문"
+                                android:text="미구현"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="15pt"
@@ -205,7 +205,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:text="중앙도서관 검색"
+                                android:text="미구현"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="15pt"
                                 android:textStyle="normal|bold"
