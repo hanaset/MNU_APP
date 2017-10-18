@@ -101,7 +101,7 @@
                             android:background="@drawable/xml_line_background"
                             android:text="오전"
                             android:textAlignment="center"
-                            android:textSize="10pt"
+                            android:textSize="8pt"
                             android:textStyle="normal|bold" />
 
                         <RelativeLayout
@@ -148,7 +148,7 @@
                             android:background="@drawable/xml_line_background"
                             android:text="오후"
                             android:textAlignment="center"
-                            android:textSize="10pt"
+                            android:textSize="8pt"
                             android:textStyle="normal|bold" />
 
                         <RelativeLayout
@@ -195,7 +195,7 @@
                             android:background="@drawable/xml_line_background"
                             android:text="저녁"
                             android:textAlignment="center"
-                            android:textSize="10pt"
+                            android:textSize="8pt"
                             android:textStyle="normal|bold" />
 
                         <RelativeLayout

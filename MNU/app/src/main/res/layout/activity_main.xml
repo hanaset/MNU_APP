@@ -92,7 +92,7 @@
                             android:background="@android:color/background_light"
                             android:elevation="0dp"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/lunch_btn" />
+                            app:srcCompat="@drawable/school_lunch" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -153,25 +153,25 @@
                         android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/M_intranet_btn"
+                            android:id="@+id/M__backdoor_btn"
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
                             android:background="@android:color/background_light"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/intranet_btn" />
+                            app:srcCompat="@drawable/lunch_btn" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/M_intranet_text"
+                                android:id="@+id/M_backdoor_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:text="기숙사 인트라넷"
+                                android:text="목대 후문"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="15pt"

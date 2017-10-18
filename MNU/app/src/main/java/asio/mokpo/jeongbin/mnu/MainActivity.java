@@ -28,7 +28,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton lunch_btn, bus_btn, book_btn,intranet_btn;
+    ImageButton lunch_btn, bus_btn, book_btn, backdoor_btn;
     TextView weather_text ;
     String tmp;
     Toolbar toolbar;
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         lunch_btn = (ImageButton)findViewById(R.id.M_lunch_btn);
         bus_btn = (ImageButton)findViewById(R.id.M_bus_btn);
         book_btn = (ImageButton)findViewById(R.id.M_book_btn);
-        intranet_btn = (ImageButton)findViewById(R.id.M_intranet_btn);
+        backdoor_btn = (ImageButton)findViewById(R.id.M__backdoor_btn);
 
         weather_text = (TextView)findViewById(R.id.M_weather);
 
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView)findViewById(R.id.M_bus_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_lunch_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_book_text)).setTypeface(typeface);
-                ((TextView)findViewById(R.id.M_intranet_text)).setTypeface(typeface);
+                ((TextView)findViewById(R.id.M_backdoor_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_weather)).setTypeface(typeface);
 
                 weather_text.setText(tmp);
@@ -115,11 +115,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                intranet_btn.setOnClickListener(new View.OnClickListener() {
+                backdoor_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, IntranetActivity.class);
-                        startActivity(intent);
+                       // Intent intent = new Intent(MainActivity.this, IntranetActivity.class);
+                       // startActivity(intent);
                     }
                 });
 
