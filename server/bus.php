@@ -5,7 +5,7 @@
 	$mysql_password = 'wjdqls56';
 	$mysql_database = 'mnu';
 
-	$conn = mysqli_connect("127.0.0.1",$mysql_username,$mysql_password,$mysql_database);
+	$conn = mysqli_connect("114.70.93.130",$mysql_username,$mysql_password,$mysql_database);
 
 	if(!$conn){
 		die("Connection failed: ". mysqli_connect_error());

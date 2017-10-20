@@ -80,9 +80,9 @@ public class PHPRequest {
     }
 
 
-    public String PhPgrade_input(final String date, final  String location, final String content, final String score, final String day) {
+    public String PhPrestaurant_detail(final String name) {
         try {
-            String postData = "date=" + date + "&" + "location=" + location + "&content=" + content + "&score=" + score + "&day=" + day;
+            String postData = "name=" + name;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
@@ -104,9 +104,9 @@ public class PHPRequest {
     }
 
 
-    public String PhPgrade_output(final String date, final  String location, final String day) {
+    public String PhPrestaurant_search(final int delivery) {
         try {
-            String postData = "date=" + date + "&" + "location=" + location + "&day=" + day;
+            String postData = "delivery=" + delivery;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
@@ -127,9 +127,9 @@ public class PHPRequest {
         }
     }
 
-    public String PhPgrade_output(final String date, final String day) {
+    public String PhPfood_name(final String name) {
         try {
-            String postData = "date=" + date + "&day=" + day;
+            String postData = "name=" + name;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");

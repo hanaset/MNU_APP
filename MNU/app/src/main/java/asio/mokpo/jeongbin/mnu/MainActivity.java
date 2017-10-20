@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Nanum.ttf");
 
-        progressDialog = ProgressDialog.show(MainActivity.this, "로딩 중", "잠시 기달려주세요.",true);
+        progressDialog = ProgressDialog.show(MainActivity.this, "로딩 중", "잠시 기다려주세요.",true);
 
         MainActivity.JsoupAsyncTask jsoupAsyncTask = new MainActivity.JsoupAsyncTask();
         jsoupAsyncTask.execute();
@@ -120,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
                 backdoor_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                   //     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://intra.mokpo.ac.kr:7777/mobile/Login.htm"));
-                   //     startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+                        startActivity(intent);
                     }
                 });
 
