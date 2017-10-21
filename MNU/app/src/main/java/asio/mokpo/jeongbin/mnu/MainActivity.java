@@ -29,15 +29,15 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton lunch_btn, bus_btn, book_btn, backdoor_btn;
+    ImageButton lunch_btn, bus_btn, SC_intranet_btn, backdoor_btn;
     TextView weather_text ;
     String tmp;
     Toolbar toolbar;
     DrawerLayout dlDrawer;
     ActionBarDrawerToggle dtToggle;
     ListView listView;
-    String[] ListItem = {"오늘의 날씨", "학교 인트라넷", "기숙사 인트라넷", "학교 지도", "중앙도서관 검색", "문의하기"};
-    final int Weather = 0, School_intranet = 1, Intranet = 2, School_map = 3, Book_search = 4, Qa = 5;
+    String[] ListItem = {"오늘의 날씨", "기숙사 인트라넷", "학교 지도", "중앙도서관 검색", "문의하기"};
+    final int Weather = 0, Intranet = 1, School_map = 2, Book_search = 3, Qa = 4;
 
     public static Handler handler = null;
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         lunch_btn = (ImageButton)findViewById(R.id.M_lunch_btn);
         bus_btn = (ImageButton)findViewById(R.id.M_bus_btn);
-        book_btn = (ImageButton)findViewById(R.id.M_book_btn);
+        SC_intranet_btn = (ImageButton)findViewById(R.id.M_SC_intranet_btn);
         backdoor_btn = (ImageButton)findViewById(R.id.M__backdoor_btn);
 
         weather_text = (TextView)findViewById(R.id.M_weather);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                 ((TextView)findViewById(R.id.M_bus_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_lunch_text)).setTypeface(typeface);
-                ((TextView)findViewById(R.id.M_book_text)).setTypeface(typeface);
+                ((TextView)findViewById(R.id.M_SC_intranet_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_backdoor_text)).setTypeface(typeface);
                 ((TextView)findViewById(R.id.M_weather)).setTypeface(typeface);
 
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                book_btn.setOnClickListener(new View.OnClickListener() {
+                SC_intranet_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, BookMainActivity.class);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://intra.mokpo.ac.kr:7777/mobile/Login.htm"));
                         startActivity(intent);
                     }
                 });
@@ -202,10 +202,6 @@ public class MainActivity extends AppCompatActivity {
         switch(position){
             case Weather: // 오늘의 날씨
                 intent = new Intent(MainActivity.this, WeatherActivity.class);
-                startActivity(intent);
-                break;
-            case School_intranet:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://intra.mokpo.ac.kr:7777/mobile/Login.htm"));
                 startActivity(intent);
                 break;
             case Intranet: // 기숙사 인트라넷

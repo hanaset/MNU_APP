@@ -171,7 +171,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:text="미구현"
+                                android:text="후문 먹거리"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="15pt"
@@ -187,7 +187,7 @@
                         android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/M_book_btn"
+                            android:id="@+id/M_SC_intranet_btn"
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
@@ -200,12 +200,12 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/M_book_text"
+                                android:id="@+id/M_SC_intranet_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:text="미구현"
+                                android:text="학교 인트라넷"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="15pt"
                                 android:textStyle="normal|bold"

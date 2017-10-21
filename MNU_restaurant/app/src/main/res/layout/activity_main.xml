@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/start"
+    tools:context="asio.mokpo.jeogibin.mnu_restaurant.MainActivity">
+
+    <EditText
+        android:id="@+id/M_id_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="아이디를 입력하세요"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="370dp"
+        android:layout_above="@+id/M_password_edit"
+        android:layout_alignStart="@+id/M_password_edit" />
+
+    <EditText
+        android:id="@+id/M_password_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="비밀번호를 입력하세요"
+        android:inputType="textPassword"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="437dp"
+        android:layout_marginBottom="13dp"
+        android:layout_above="@+id/M_login_btn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/M_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="503dp"
+        android:layout_alignBaseline="@+id/M_join_btn"
+        android:layout_alignBottom="@+id/M_join_btn"
+        android:layout_alignStart="@+id/M_password_edit" />
+
+    <Button
+        android:id="@+id/M_join_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        tools:layout_editor_absoluteX="196dp"
+        tools:layout_editor_absoluteY="503dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/M_password_edit"
+        android:layout_marginBottom="74dp" />
+
+    <TextView
+        android:id="@+id/M_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:text="항상 감사합니다."
+        android:textAlignment="center"
+        android:textSize="15pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/M_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/M_text"
+        android:layout_centerHorizontal="true"
+        android:text="고생하시는 사장님들께"
+        android:textAlignment="center" />
+</RelativeLayout>
