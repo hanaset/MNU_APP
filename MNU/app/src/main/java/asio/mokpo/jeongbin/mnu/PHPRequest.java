@@ -130,7 +130,7 @@ public class PHPRequest {
     public String PhPfood_name(final String name) {
         try {
             String postData = "name=" + name;
-            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
             conn.setConnectTimeout(5000);
@@ -143,8 +143,7 @@ public class PHPRequest {
             String result = readStream(conn.getInputStream());
             conn.disconnect();
             return result;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.i("PHPRequest", "request was failed.");
             return null;
         }

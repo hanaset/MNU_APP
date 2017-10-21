@@ -53,6 +53,13 @@ public class RestaurantdetailActivity extends AppCompatActivity {
         name_text.setText(name);
 
         try{
+            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_count.php");
+            String result = request.PhPfood_name(name);
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }
+
+        try{
             PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_detail.php");
             String result = request.PhPrestaurant_detail(name);
             try{

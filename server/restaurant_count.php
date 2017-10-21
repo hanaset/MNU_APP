@@ -13,7 +13,7 @@
 
 	$name = $_POST['name'];
 
-	$sql = "UPDATE restaurnat set count = (select count from restaurant where name ='".$name."')+1 where name = '".$name."'";
+	$sql = "UPDATE restaurant set count = count+1 where name = '".$name."'";
 	
 	$result = mysqli_query($conn, $sql);
 
