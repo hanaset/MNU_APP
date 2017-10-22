@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(new Intent(MainActivity.this, StartActivity.class));
 
+        NetworkUtil.setNetworkPolicy();
+
         id_edit = (EditText)findViewById(R.id.M_id_edit);
         pass_edit = (EditText)findViewById(R.id.M_password_edit);
         login_btn = (Button)findViewById(R.id.M_login_btn);
@@ -61,44 +63,27 @@ public class MainActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread(){
-                    @Override
-                    public void run() {
-                        super.run();
-
-                        try{
-                            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_login.php");
-                            String result = request.PhP_login(id_edit.getText().toString(), pass_edit.getText().toString());
-
-                            if(result.equals("failed")){
-                                login = 0;
-                            }else{
-                                login = 1;
-                            }
-
-                            handler.sendEmptyMessage(0);
-                        }catch (MalformedURLException e){
-                            e.printStackTrace();
-                        }
+                try{
+                    PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_login.php");
+                    String result = request.PhP_login(id_edit.getText().toString(), pass_edit.getText().toString());
+                    if(result.equals("failed")){
+                        login = 0;
+                    }else{
+                        login = 1;
                     }
-                }.start();
+                    if(login == 1){
+                        login = 0;
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        intent.putExtra("id",id_edit.getText().toString());
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplication(),"아이디와 비밀번호를 다시 확인하세요.",Toast.LENGTH_SHORT).show();
+                    }
+                }catch (MalformedURLException e){
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-            if(login == 1){
-                login = 0;
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.putExtra("id",id_edit.getText().toString());
-                startActivity(intent);
-            }else{
-                Toast.makeText(getApplication(),"아이디와 비밀번호를 다시 확인하세요.",Toast.LENGTH_SHORT).show();
-            }
-        }
-    };
 }

@@ -40,36 +40,21 @@ public class FindActivity extends AppCompatActivity {
                 if(id.getText().toString().isEmpty() || phone.getText().toString().isEmpty()){
                     Toast.makeText(getApplication(), "모두 입력하세요.", Toast.LENGTH_SHORT).show();
                 }else{
-                    new Thread(){
-                        @Override
-                        public void run() {
-                            super.run();
-                            try{
-                                PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_find.php");
-                                String result = request.PhP_Pass_find(id.getText().toString(), phone.getText().toString());
+                    try{
+                        PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_find.php");
+                        String result = request.PhP_Pass_find(id.getText().toString(), phone.getText().toString());
 
-                                password = result;
-                                handler.sendEmptyMessage(0);
-                            }catch (MalformedURLException e){
-                                e.printStackTrace();
-                            }
+                        if(result.equals("failed")){
+                            pass.setText("다시 정보를 확인하세요.");
+                        }else{
+                            pass.setText("비밀번호 : " + result);
                         }
-                    }.start();
+                    }catch (MalformedURLException e){
+                        e.printStackTrace();
+                    }
                 }
             }
         });
     }
 
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-            if(password.equals("failed")){
-                pass.setText("다시 정보를 확인하세요.");
-            }else{
-                pass.setText("비밀번호 : " + password);
-            }
-        }
-    };
 }
