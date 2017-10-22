@@ -81,7 +81,7 @@ public class InfoEditActivity extends AppCompatActivity {
                 Toast.makeText(getApplication(),"수정이 불가능합니다.",Toast.LENGTH_SHORT).show();
                 finish();
             }else{
-                String[] arr = msg.obj.toString().split(",");
+                String[] arr = result.split(",");
                 name = arr[0];
                 phone = arr[1];
                 time = arr[2];

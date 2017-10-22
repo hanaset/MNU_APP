@@ -22,7 +22,6 @@ public class FindActivity extends AppCompatActivity {
     EditText id, phone;
     TextView pass;
     Button button;
-    String password;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class FindActivity extends AppCompatActivity {
 
         id = (EditText)findViewById(R.id.F_id_edit);
         phone = (EditText)findViewById(R.id.F_phone_edit);
-        pass = (TextView)findViewById(R.id.F_text);
+        pass = (TextView)findViewById(R.id.F_pass_text);
         button = (Button)findViewById(R.id.F_find_btn);
 
         button.setOnClickListener(new View.OnClickListener() {

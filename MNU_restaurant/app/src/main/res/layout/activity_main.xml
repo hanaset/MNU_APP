@@ -12,11 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="아이디를 입력하세요"
+        android:hint="ID"
         android:inputType="textPersonName"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="69dp"
         tools:layout_editor_absoluteY="370dp"
+        android:layout_marginBottom="12dp"
         android:layout_above="@+id/M_password_edit"
         android:layout_alignStart="@+id/M_password_edit" />
 
@@ -24,13 +25,13 @@
         android:id="@+id/M_password_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
         android:ems="10"
-        android:hint="비밀번호를 입력하세요"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="69dp"
         tools:layout_editor_absoluteY="437dp"
-        android:layout_marginBottom="13dp"
         android:layout_above="@+id/M_login_btn"
         android:layout_centerHorizontal="true" />
 
@@ -41,20 +42,33 @@
         android:text="로그인"
         tools:layout_editor_absoluteX="69dp"
         tools:layout_editor_absoluteY="503dp"
+        android:background="@drawable/shape"
+        android:textColor="#ff33b5ed"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_alignBaseline="@+id/M_join_btn"
         android:layout_alignBottom="@+id/M_join_btn"
-        android:layout_toStartOf="@+id/M_find_btn" />
+        android:layout_toStartOf="@+id/M_find_btn"
+        android:layout_marginEnd="12dp" />
 
     <Button
         android:id="@+id/M_join_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
         android:text="회원가입"
+        android:textAllCaps="false"
+        android:background="@drawable/shape"
+        android:textColor="#ff33b5ed"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="196dp"
         tools:layout_editor_absoluteY="503dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/M_find_btn" />
+        android:layout_toEndOf="@+id/M_find_btn"
+        android:layout_marginStart="11dp" />
 
     <TextView
         android:id="@+id/M_text"
@@ -81,7 +95,13 @@
         android:id="@+id/M_find_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/M_password_edit"
-        android:layout_centerHorizontal="true"
-        android:text="비번찾기" />
+        android:background="@drawable/shape"
+        android:textColor="#ff33b5ed"
+        android:textStyle="bold"
+        android:text="비번찾기"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignBaseline="@+id/M_join_btn"
+        android:layout_alignBottom="@+id/M_join_btn"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
