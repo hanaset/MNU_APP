@@ -30,9 +30,9 @@ public class PHPRequest {
     }
 
 
-    public String PhP_login(final String id, final  String passwd) {
+    public String PhP_login(final String id, final  String pass) {
         try {
-            String postData = "id=" + id + "&" + "passwd=" + passwd;
+            String postData = "id=" + id + "&" + "pass=" + pass;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");

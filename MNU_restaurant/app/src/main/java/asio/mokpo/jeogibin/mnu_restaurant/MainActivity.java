@@ -1,6 +1,8 @@
 package asio.mokpo.jeogibin.mnu_restaurant;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.net.MalformedURLException;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText id_edit, pass_edit;
     Button login_btn, join_btn;
+    int login = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Thread(){
+                    @Override
+                    public void run() {
+                        super.run();
 
+                        try{
+                            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_login.php");
+                            String result = request.PhP_login(id_edit.getText().toString(), pass_edit.getText().toString());
 
+                            if(result.equals("failed")){
+                                login = 0;
+                            }else{
+                                login = 1;
+                            }
+
+                            handler.sendEmptyMessage(0);
+                        }catch (MalformedURLException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
+            }
+        });
     }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            if(login == 1){
+                login = 0;
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(getApplication(),"아이디와 비밀번호를 다시 확인하세요.",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }
