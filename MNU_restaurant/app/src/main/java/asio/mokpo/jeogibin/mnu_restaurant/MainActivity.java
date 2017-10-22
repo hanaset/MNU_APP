@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 public class MainActivity extends AppCompatActivity {
 
     EditText id_edit, pass_edit;
-    Button login_btn, join_btn;
+    Button login_btn, join_btn, find_btn;
     int login = 0;
 
     @Override
@@ -29,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
         pass_edit = (EditText)findViewById(R.id.M_password_edit);
         login_btn = (Button)findViewById(R.id.M_login_btn);
         join_btn = (Button)findViewById(R.id.M_join_btn);
+        find_btn = (Button)findViewById(R.id.M_find_btn);
+
+        find_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, FindActivity.class);
+                startActivity(intent);
+            }
+        });
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override

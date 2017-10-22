@@ -43,7 +43,7 @@
         tools:layout_editor_absoluteY="503dp"
         android:layout_alignBaseline="@+id/M_join_btn"
         android:layout_alignBottom="@+id/M_join_btn"
-        android:layout_alignStart="@+id/M_password_edit" />
+        android:layout_toStartOf="@+id/M_find_btn" />
 
     <Button
         android:id="@+id/M_join_btn"
@@ -52,9 +52,9 @@
         android:text="회원가입"
         tools:layout_editor_absoluteX="196dp"
         tools:layout_editor_absoluteY="503dp"
+        android:layout_marginBottom="74dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/M_password_edit"
-        android:layout_marginBottom="74dp" />
+        android:layout_toEndOf="@+id/M_find_btn" />
 
     <TextView
         android:id="@+id/M_text"
@@ -76,4 +76,12 @@
         android:layout_centerHorizontal="true"
         android:text="고생하시는 사장님들께"
         android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/M_find_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/M_password_edit"
+        android:layout_centerHorizontal="true"
+        android:text="비번찾기" />
 </RelativeLayout>
