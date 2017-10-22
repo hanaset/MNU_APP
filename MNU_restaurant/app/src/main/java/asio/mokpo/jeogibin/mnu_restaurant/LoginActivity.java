@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.net.MalformedURLException;
 
@@ -77,11 +78,51 @@ public class LoginActivity extends AppCompatActivity {
         mem_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                id_delete(id);
             }
         });
 
     }
+
+    void id_delete(final String id){
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+
+                try{
+                    PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_delete.php");
+                    String result = request.PhP_ID_search(id);
+                    Message message = Message.obtain();
+
+                    if(result.equals("1")){
+                        message.arg1 = 1;
+                    }else{
+                        message.arg1 = 2;
+                    }
+                    delete_handler.sendMessage(message);
+
+                }catch (MalformedURLException e){
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    Handler delete_handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            if(msg.arg1 == 1)
+            {
+                Toast.makeText(getApplication(),"탈퇴에 성공하였습니다.",Toast.LENGTH_SHORT).show();
+                finish();
+            }else{
+                Toast.makeText(getApplication(),"탈퇴에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 
     void notice_change(final String id, final String notice){
         new Thread(){
@@ -129,10 +170,12 @@ public class LoginActivity extends AppCompatActivity {
                 try{
                     PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_login_output.php");
                     String result  = request.PhP_ID_search(id);
-                    String[] arr = result.split(",");
 
-                    name_text.setText(arr[0]);
-                    notice_text.setText("알림 : " + arr[1]);
+                    Message message = Message.obtain();
+                    message.obj = result;
+
+                    info_handler.sendMessage(message);
+
                 }catch (MalformedURLException e){
                     e.printStackTrace();
                 }
@@ -140,5 +183,15 @@ public class LoginActivity extends AppCompatActivity {
         }.start();
     }
 
+    Handler info_handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            String[] arr = msg.obj.toString().split(",");
+            name_text.setText(arr[0]);
+            notice_text.setText("알림 : " + arr[1]);
+        }
+    };
 
 }
