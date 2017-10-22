@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Space
                 android:layout_width="match_parent"
@@ -33,12 +35,44 @@
 
             </LinearLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
             <TextView
-                android:id="@+id/L_menu_Text"
+                android:id="@+id/L_notice_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="메뉴 관리"
-                android:textAlignment="center" />
+                android:text="알림 : "
+                android:textAlignment="center"
+                android:textSize="8pt"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/L_notice_eidt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="가게 알림 수정란"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/L_notice_edit_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="수정" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,20 +80,97 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButton5"
+                    android:id="@+id/L_menu_add_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@android:color/background_light"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/small_icon" />
+                    app:srcCompat="@drawable/icon1" />
 
                 <ImageButton
-                    android:id="@+id/imageButton3"
+                    android:id="@+id/L_menu_edit_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="?android:attr/colorLongPressedHighlight"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/small_icon" />
+                    app:srcCompat="@drawable/icon2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/L_menu_add_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="메뉴 추가"
+                    android:textAlignment="center"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/L_menu_edit_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.00"
+                    android:text="메뉴 수정"
+                    android:textAlignment="center"
+                    android:textSize="8pt" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/L_mem_edit_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/background_light"
+                    app:srcCompat="@drawable/icon4" />
+
+                <ImageButton
+                    android:id="@+id/L_mem_delete_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/background_light"
+                    app:srcCompat="@drawable/icon3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="정보 수정"
+                    android:textAlignment="center"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="회원 탈퇴"
+                    android:textAlignment="center"
+                    android:textSize="8pt" />
             </LinearLayout>
 
         </LinearLayout>

@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             if(login == 1){
                 login = 0;
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.putExtra("id",id_edit.getText().toString());
                 startActivity(intent);
             }else{
                 Toast.makeText(getApplication(),"아이디와 비밀번호를 다시 확인하세요.",Toast.LENGTH_SHORT).show();
