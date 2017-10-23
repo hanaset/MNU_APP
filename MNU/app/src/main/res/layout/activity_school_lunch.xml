@@ -45,7 +45,7 @@
                             android:layout_margin="5dp"
                             android:background="@drawable/button_style"
                             android:text="이전 날"
-                            android:textColor="@android:color/holo_blue_light"
+                            android:textColor="@color/text"
                             android:textStyle="bold" />
 
                         <Button
@@ -57,7 +57,7 @@
                             android:layout_margin="5dp"
                             android:background="@drawable/button_style"
                             android:text="다음 날"
-                            android:textColor="@android:color/holo_blue_light"
+                            android:textColor="@color/text"
                             android:textStyle="bold" />
 
                         <TextView
@@ -113,13 +113,13 @@
                             android:id="@+id/SL_morning"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
                             android:layout_weight="1"
                             android:background="@drawable/button_style"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
                             android:text="오전"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_blue_light"
+                            android:textColor="@color/text"
                             android:textSize="8pt"
                             android:textStyle="normal|bold" />
                     </FrameLayout>
@@ -160,12 +160,12 @@
                             android:id="@+id/SL_lunch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
                             android:background="@drawable/button_style"
                             android:text="오후"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_blue_light"
+                            android:textColor="@color/text"
                             android:textSize="8pt"
                             android:textStyle="normal|bold" />
 
@@ -207,12 +207,12 @@
                             android:id="@+id/SL_dinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
                             android:background="@drawable/button_style"
                             android:text="저녁"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_blue_light"
+                            android:textColor="@color/text"
                             android:textSize="8pt"
                             android:textStyle="normal|bold" />
 
@@ -266,7 +266,7 @@
                         android:background="@drawable/button_style"
                         android:text="교수 식단"
                         android:textAlignment="center"
-                        android:textColor="@android:color/holo_blue_light"
+                        android:textColor="@color/text"
                         android:textSize="11pt"
                         android:textStyle="normal|bold" />
 
@@ -445,7 +445,7 @@
                         android:background="@drawable/button_style"
                         android:text="학식 메뉴"
                         android:textAlignment="center"
-                        android:textColor="@android:color/holo_blue_light"
+                        android:textColor="@color/text"
                         android:textSize="11pt"
                         android:textStyle="normal|bold" />
 
