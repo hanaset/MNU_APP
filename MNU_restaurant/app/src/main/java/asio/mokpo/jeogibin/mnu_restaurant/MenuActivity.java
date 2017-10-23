@@ -90,8 +90,8 @@ public class MenuActivity extends AppCompatActivity {
                         String result = request.PhP_food_menu_edit(name,food_name_edit.getText().toString(), price_eidt.getText().toString().replace("원",""));
 
                         if(result.equals("1")){
-                            Toast.makeText(getApplication(),"메뉴 삭제에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                             list_setting();
+                            Toast.makeText(getApplication(),"메뉴 삭제에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(getApplication(),"메뉴 삭제에 실패하였습니다.",Toast.LENGTH_SHORT).show();
                         }

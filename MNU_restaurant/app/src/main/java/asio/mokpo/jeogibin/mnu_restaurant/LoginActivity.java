@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             String result  = request.PhP_notice_edit(id, notice);
 
             if(result.equals("1")) {
-                notice_text.setText("알림 : " + result);
+                notice_text.setText("알림 : " + notice);
             }else{
                 notice_text.setText("알림 : 오류 발생");
             }

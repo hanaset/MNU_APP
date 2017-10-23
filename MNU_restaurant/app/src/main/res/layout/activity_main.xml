@@ -11,64 +11,64 @@
         android:id="@+id/M_id_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/M_password_edit"
+        android:layout_alignStart="@+id/M_password_edit"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="textPersonName"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="370dp"
-        android:layout_marginBottom="12dp"
-        android:layout_above="@+id/M_password_edit"
-        android:layout_alignStart="@+id/M_password_edit" />
+        tools:layout_editor_absoluteY="370dp" />
 
     <EditText
         android:id="@+id/M_password_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/M_login_btn"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="437dp"
-        android:layout_above="@+id/M_login_btn"
-        android:layout_centerHorizontal="true" />
+        tools:layout_editor_absoluteY="437dp" />
 
     <Button
         android:id="@+id/M_login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그인"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="503dp"
-        android:background="@drawable/shape"
-        android:textColor="#ff33b5ed"
-        android:textStyle="bold"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_alignBaseline="@+id/M_join_btn"
         android:layout_alignBottom="@+id/M_join_btn"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_toStartOf="@+id/M_find_btn"
-        android:layout_marginEnd="12dp" />
+        android:background="@drawable/shape"
+        android:text="로그인"
+        android:textColor="#ff33b5ed"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="503dp" />
 
     <Button
         android:id="@+id/M_join_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="56dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/M_find_btn"
+        android:background="@drawable/shape"
         android:text="회원가입"
         android:textAllCaps="false"
-        android:background="@drawable/shape"
         android:textColor="#ff33b5ed"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="503dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/M_find_btn"
-        android:layout_marginStart="11dp" />
+        tools:layout_editor_absoluteY="503dp" />
 
     <TextView
         android:id="@+id/M_text"
@@ -79,6 +79,7 @@
         android:layout_marginTop="67dp"
         android:text="항상 감사합니다."
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="15pt"
         android:textStyle="bold" />
 
@@ -89,19 +90,20 @@
         android:layout_below="@+id/M_text"
         android:layout_centerHorizontal="true"
         android:text="고생하시는 사장님들께"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/M_find_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:textColor="#ff33b5ed"
-        android:textStyle="bold"
-        android:text="비번찾기"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_alignBaseline="@+id/M_join_btn"
         android:layout_alignBottom="@+id/M_join_btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape"
+        android:text="비번찾기"
+        android:textColor="#ff33b5ed"
+        android:textStyle="bold" />
 </RelativeLayout>
