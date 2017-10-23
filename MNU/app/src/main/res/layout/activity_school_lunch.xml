@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
 
     <TabHost
         android:id="@+id/SL_tabhost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/main">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +42,11 @@
                             android:id="@+id/SL_prev_btn"
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
-                            android:text="이전 날" />
+                            android:layout_margin="5dp"
+                            android:background="@drawable/button_style"
+                            android:text="이전 날"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/SL_next_btn"
@@ -47,8 +54,11 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true"
-                            android:elevation="1dp"
-                            android:text="다음 날" />
+                            android:layout_margin="5dp"
+                            android:background="@drawable/button_style"
+                            android:text="다음 날"
+                            android:textColor="@android:color/holo_blue_light"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/SL_date_text"
@@ -60,7 +70,9 @@
                             android:layout_marginRight="5dp"
                             android:text="오늘날짜"
                             android:textAlignment="center"
-                            android:textSize="9pt" />
+                            android:textColor="@android:color/black"
+                            android:textSize="9pt"
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -76,6 +88,7 @@
                             android:layout_weight="1"
                             android:text="BTL 식단표"
                             android:textAlignment="center"
+                            android:textColor="?attr/colorAccent"
                             android:textSize="11pt"
                             android:textStyle="normal|bold" />
 
@@ -86,8 +99,10 @@
                             android:layout_weight="1"
                             android:text="한울관 식단표"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="11pt"
                             android:textStyle="normal|bold" />
+
                     </LinearLayout>
 
                     <FrameLayout
@@ -98,17 +113,15 @@
                             android:id="@+id/SL_morning"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/xml_line_background"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_style"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
                             android:text="오전"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_blue_light"
                             android:textSize="8pt"
                             android:textStyle="normal|bold" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        </RelativeLayout>
                     </FrameLayout>
 
                     <LinearLayout
@@ -124,6 +137,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
+                            android:textColor="?attr/colorAccent"
                             android:textSize="6pt" />
 
                         <TextView
@@ -134,6 +148,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -145,17 +160,15 @@
                             android:id="@+id/SL_lunch"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/xml_line_background"
+                            android:background="@drawable/button_style"
                             android:text="오후"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_blue_light"
                             android:textSize="8pt"
                             android:textStyle="normal|bold" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        </RelativeLayout>
                     </FrameLayout>
 
                     <LinearLayout
@@ -171,6 +184,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
+                            android:textColor="?attr/colorAccent"
                             android:textSize="6pt" />
 
                         <TextView
@@ -181,6 +195,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -192,17 +207,14 @@
                             android:id="@+id/SL_dinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/xml_line_background"
+                            android:background="@drawable/button_style"
                             android:text="저녁"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="10dp"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_blue_light"
                             android:textSize="8pt"
                             android:textStyle="normal|bold" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        </RelativeLayout>
 
                     </FrameLayout>
 
@@ -219,6 +231,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
+                            android:textColor="?attr/colorAccent"
                             android:textSize="6pt" />
 
                         <TextView
@@ -229,6 +242,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -249,8 +263,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        android:background="@drawable/button_style"
                         android:text="교수 식단"
                         android:textAlignment="center"
+                        android:textColor="@android:color/holo_blue_light"
                         android:textSize="11pt"
                         android:textStyle="normal|bold" />
 
@@ -267,6 +283,7 @@
                             android:layout_weight="1"
                             android:text="월요일"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -278,6 +295,7 @@
                             android:layout_weight="1"
                             android:text="화요일"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -289,6 +307,7 @@
                             android:layout_weight="1"
                             android:text="수요일"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
                     </LinearLayout>
@@ -306,6 +325,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="6pt" />
 
                         <TextView
@@ -316,6 +336,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="6pt" />
 
                         <TextView
@@ -326,6 +347,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
+                            android:textColor="@android:color/holo_green_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -342,6 +364,7 @@
                             android:layout_weight="1"
                             android:text="목요일"
                             android:textAlignment="center"
+                            android:textColor="@color/test"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -353,6 +376,7 @@
                             android:layout_weight="1"
                             android:text="금요일"
                             android:textAlignment="center"
+                            android:textColor="@color/test"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -364,6 +388,7 @@
                             android:layout_weight="1"
                             android:text="토요일"
                             android:textAlignment="center"
+                            android:textColor="@color/test"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
                     </LinearLayout>
@@ -381,6 +406,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
+                            android:textColor="@color/test"
                             android:textSize="6pt" />
 
                         <TextView
@@ -391,6 +417,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
+                            android:textColor="@color/test"
                             android:textSize="6pt" />
 
                         <TextView
@@ -401,6 +428,7 @@
                             android:layout_weight="1"
                             android:text="\n아쉽게도\n없어요"
                             android:textAlignment="center"
+                            android:textColor="@color/test"
                             android:textSize="7pt" />
 
                     </LinearLayout>
@@ -414,8 +442,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
+                        android:background="@drawable/button_style"
                         android:text="학식 메뉴"
                         android:textAlignment="center"
+                        android:textColor="@android:color/holo_blue_light"
                         android:textSize="11pt"
                         android:textStyle="normal|bold" />
 
@@ -425,7 +455,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="학식(교직원4,000원, 학생3,500원), 청국장비빔밥(4,500원), \n돈까스(4,500원), 볶음밥류(3,500원)"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:id="@+id/SL2_student_menu1"
@@ -433,7 +464,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:text="라면(2,000원), 떡라면(2,500원), 만두라면(2,500원), \n치즈라면(2,500원), 짜장면(3,000원), 공기밥(500원)"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 

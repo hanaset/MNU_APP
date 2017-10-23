@@ -4,28 +4,35 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="00:00"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:id="@+id/Bitem_time"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
         android:layout_weight="1"
-        android:layout_width="100dp" />
+        android:gravity="center"
+        android:text="00:00"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold" />
 
     <TextView
-        android:text="서광주"
-        android:layout_margin="5dp"
-        android:layout_height="wrap_content"
         android:id="@+id/Bitem_start"
-        android:layout_weight="1"
         android:layout_width="120dp"
-        android:textAlignment="center" />
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="서광주"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
 
     <TextView
-        android:text="첨단서라아파트버스승강장(06:50)/남부대정문(06:51)/도림캠퍼스"
-        android:layout_margin="5dp"
-        android:layout_height="wrap_content"
         android:id="@+id/Bitem_route"
-        android:layout_weight="1"
         android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:text="첨단서라아파트버스승강장(06:50)/남부대정문(06:51)/도림캠퍼스"
         android:textAlignment="center" />
 </LinearLayout>

@@ -68,10 +68,9 @@ public class RestaurantdetailActivity extends AppCompatActivity {
 
                 JSONObject c = nameAarry.getJSONObject(0);
 
-                phone_text.setText(c.getString("phone"));
-                // Linkify.addLinks(phone_text, Linkify.PHONE_NUMBERS);
-                time_text.setText(c.getString("time"));
-                notice_text.setText(c.getString("notice"));
+                phone_text.setText("연락처 : " + c.getString("phone"));
+                time_text.setText("영업시간 : " + c.getString("time"));
+                notice_text.setText("알림 : " + c.getString("notice"));
                 String url = c.getString("image");
 
                 if(!url.isEmpty()) {
@@ -98,7 +97,7 @@ public class RestaurantdetailActivity extends AppCompatActivity {
                     JSONObject c = food_array.getJSONObject(i);
 
                     food.put("food_name",c.getString("food_name"));
-                    food.put("price",c.getString("price"));
+                    food.put("price",c.getString("price")+"원");
 
                     food_list.add(food);
                 }
