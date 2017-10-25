@@ -215,9 +215,54 @@ public class PHPRequest {
         }
     }
 
+    public String PhP_food_menu_edit(final String num) {
+        try {
+            String postData = "num=" + num;
+            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestMethod("POST");
+            conn.setConnectTimeout(5000);
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            OutputStream outputStream = conn.getOutputStream();
+            outputStream.write(postData.getBytes("UTF-8"));
+            outputStream.flush();
+            outputStream.close();
+            String result = readStream(conn.getInputStream());
+            conn.disconnect();
+            return result;
+        }
+        catch (Exception e) {
+            Log.i("PHPRequest", "request was failed.");
+            return null;
+        }
+    }
+
     public String PhP_food_menu_edit(final String name, final String food_name, final String price) {
         try {
             String postData = "name=" + name + "&food_name=" + food_name + "&price=" + price;
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestMethod("POST");
+            conn.setConnectTimeout(5000);
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            OutputStream outputStream = conn.getOutputStream();
+            outputStream.write(postData.getBytes("UTF-8"));
+            outputStream.flush();
+            outputStream.close();
+            String result = readStream(conn.getInputStream());
+            conn.disconnect();
+            return result;
+        } catch (Exception e) {
+            Log.i("PHPRequest", "request was failed.");
+            return null;
+        }
+    }
+
+    public String PhP_food_menu_edit(final String name, final String food_name, final String price, final String num) {
+        try {
+            String postData = "name=" + name + "&food_name=" + food_name + "&price=" + price + "&num=" + num;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");

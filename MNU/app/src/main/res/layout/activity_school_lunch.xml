@@ -88,7 +88,7 @@
                             android:layout_weight="1"
                             android:text="BTL 식단표"
                             android:textAlignment="center"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/actionMenuTextColor"
                             android:textSize="11pt"
                             android:textStyle="normal|bold" />
 
@@ -99,7 +99,7 @@
                             android:layout_weight="1"
                             android:text="한울관 식단표"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="11pt"
                             android:textStyle="normal|bold" />
 
@@ -137,7 +137,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/actionMenuTextColor"
                             android:textSize="6pt" />
 
                         <TextView
@@ -148,7 +148,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -184,7 +184,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/actionMenuTextColor"
                             android:textSize="6pt" />
 
                         <TextView
@@ -195,7 +195,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -231,7 +231,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/actionMenuTextColor"
                             android:textSize="6pt" />
 
                         <TextView
@@ -242,7 +242,7 @@
                             android:layout_weight="1"
                             android:text="TextView"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -283,7 +283,7 @@
                             android:layout_weight="1"
                             android:text="월요일"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -295,7 +295,7 @@
                             android:layout_weight="1"
                             android:text="화요일"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -307,7 +307,7 @@
                             android:layout_weight="1"
                             android:text="수요일"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
                     </LinearLayout>
@@ -325,7 +325,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
 
                         <TextView
@@ -336,7 +336,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
 
                         <TextView
@@ -347,7 +347,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
-                            android:textColor="@android:color/holo_green_dark"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
                     </LinearLayout>
 
@@ -364,7 +364,7 @@
                             android:layout_weight="1"
                             android:text="목요일"
                             android:textAlignment="center"
-                            android:textColor="@color/test"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -376,7 +376,7 @@
                             android:layout_weight="1"
                             android:text="금요일"
                             android:textAlignment="center"
-                            android:textColor="@color/test"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
 
@@ -388,7 +388,7 @@
                             android:layout_weight="1"
                             android:text="토요일"
                             android:textAlignment="center"
-                            android:textColor="@color/test"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="10pt"
                             android:textStyle="normal|bold" />
                     </LinearLayout>
@@ -406,7 +406,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
-                            android:textColor="@color/test"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
 
                         <TextView
@@ -417,7 +417,7 @@
                             android:layout_weight="1"
                             android:text="TextView\nTextView\nTextView\nTextView\nTextView\nTextView"
                             android:textAlignment="center"
-                            android:textColor="@color/test"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="6pt" />
 
                         <TextView
@@ -428,7 +428,7 @@
                             android:layout_weight="1"
                             android:text="\n아쉽게도\n없어요"
                             android:textAlignment="center"
-                            android:textColor="@color/test"
+                            android:textColor="@android:color/background_dark"
                             android:textSize="7pt" />
 
                     </LinearLayout>
