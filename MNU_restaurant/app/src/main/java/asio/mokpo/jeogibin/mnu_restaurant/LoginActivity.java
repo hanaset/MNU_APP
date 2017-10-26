@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(LoginActivity.this, MenuActivity.class);
-                intent1.putExtra("name",name_text.getText().toString());
+                intent1.putExtra("id",id);
                 startActivity(intent1);
             }
         });

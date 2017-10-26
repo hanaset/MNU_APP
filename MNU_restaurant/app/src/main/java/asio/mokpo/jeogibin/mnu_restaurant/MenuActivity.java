@@ -15,6 +15,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -36,12 +37,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by b1835 on 2017-10-22.
@@ -49,7 +55,17 @@ import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
 
-    String name, num;
+    public static ProgressDialog progressDialog;
+    public Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            progressDialog.dismiss();
+        }
+    };
+
+    String id, num;
     String server = "http://114.70.93.130/mnu/";
     String image_url;
     EditText food_name_edit, price_eidt;
@@ -68,8 +84,9 @@ public class MenuActivity extends AppCompatActivity {
     String twoHyphens = "--";
     String boundary = "*****";
     String upload;
-    String before_uri;
     Bitmap bitmap;
+
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault());
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,7 +101,7 @@ public class MenuActivity extends AppCompatActivity {
         imageButton = (ImageButton)findViewById(R.id.Menu_image);
 
         final Intent intent = getIntent();
-        name = intent.getExtras().getString("name");
+        id = intent.getExtras().getString("id");
 
         list_setting();
 
@@ -92,32 +109,31 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Date date = new Date();
+
+                num = id + simpleDateFormat.format(date);
+
                 if (food_name_edit.getText().toString().isEmpty() || price_eidt.getText().toString().isEmpty()) {
                     Toast.makeText(getApplication(), "모두 입력하세요.",Toast.LENGTH_SHORT).show();
                 } else {
-                    if (image_url == null) {
-                        try {
-                            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_menu_add.php");
-                            String result = request.PhP_food_menu_edit(name, food_name_edit.getText().toString(), price_eidt.getText().toString());
+                    try {
+                        PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_menu_add.php");
+                        String result = request.PhP_food_menu_edit(id, food_name_edit.getText().toString(), price_eidt.getText().toString(), num);
 
-                            if (result.equals("1")) {
-                                list_setting();
-                                food_name_edit.setText("");
-                                price_eidt.setText("");
-                                Toast.makeText(getApplication(), "메뉴 추가에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(getApplication(), "메뉴 추가에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        }catch (MalformedURLException e){
-                            e.printStackTrace();
+                        if (result.equals("1")) {
+                            list_setting();
+                            Toast.makeText(getApplication(), "메뉴 추가에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplication(), "메뉴 추가에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
+                    }catch (MalformedURLException e){
+                        e.printStackTrace();
+                    }
+                    if (image_url != null) {
                         try {
-                            DoFileUpload(image_url, name + "." + food_name_edit.getText().toString() + "." + price_eidt.getText().toString(), "http://114.70.93.130/mnu/image_upload.php");
+                            DoFileUpload(image_url, num, "http://114.70.93.130/mnu/image_edit.php");
                             if (upload.equals("11")) {
                                 list_setting();
-                                food_name_edit.setText("");
-                                price_eidt.setText("");
                                 Toast.makeText(getApplication(), "메뉴 추가에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(getApplication(), "메뉴 추가에 실패하였습니다.", Toast.LENGTH_SHORT).show();
@@ -127,6 +143,9 @@ public class MenuActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    imageButton.setImageResource(R.drawable.icon1);
+                    food_name_edit.setText("");
+                    price_eidt.setText("");
                 }
             }
         });
@@ -143,6 +162,7 @@ public class MenuActivity extends AppCompatActivity {
 
                         if(result.equals("1")){
                             list_setting();
+                            imageButton.setImageResource(R.drawable.icon1);
                             Toast.makeText(getApplication(),"메뉴 삭제에 성공하였습니다.",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(getApplication(),"메뉴 삭제에 실패하였습니다.",Toast.LENGTH_SHORT).show();
@@ -151,6 +171,8 @@ public class MenuActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
+                    food_name_edit.setText("");
+                    price_eidt.setText("");
                 }
             }
         });
@@ -161,27 +183,25 @@ public class MenuActivity extends AppCompatActivity {
                 if (food_name_edit.getText().toString().isEmpty() || price_eidt.getText().toString().isEmpty()) {
                     Toast.makeText(getApplication(), "모두 입력하세요.",Toast.LENGTH_SHORT).show();
                 } else {
-                    if (image_url == null){
-                        try {
-                            PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_menu_edit.php");
-                            String result = request.PhP_food_menu_edit(name, food_name_edit.getText().toString(), price_eidt.getText().toString(), num);
+                    try {
+                        PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_menu_edit.php");
+                        String result = request.PhP_food_menu_edit(food_name_edit.getText().toString(), price_eidt.getText().toString(), num);
 
-                            if (result.equals("1")) {
-                                list_setting();
-                                Toast.makeText(getApplication(), "메뉴 수정에 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getApplication(), "메뉴 수정에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
+                        if (result.equals("1")) {
+                            list_setting();
+                            Toast.makeText(getApplication(), "메뉴 수정에 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplication(), "메뉴 수정에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                         }
-                    }else {
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    if (image_url != null) {
                         try {
-                            DoFileUpload(image_url, name + "." + food_name_edit.getText().toString() + "." + price_eidt.getText().toString() + "." + num, "http://114.70.93.130/mnu/image_edit.php");
+                            DoFileUpload(image_url, num, "http://114.70.93.130/mnu/image_edit.php");
                             if (upload.equals("11")) {
                                 list_setting();
-                                food_name_edit.setText("");
-                                price_eidt.setText("");
+
                                 Toast.makeText(getApplication(), "메뉴 수정에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(getApplication(), "메뉴 수정에 실패하였습니다.", Toast.LENGTH_SHORT).show();
@@ -191,6 +211,8 @@ public class MenuActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    food_name_edit.setText("");
+                    price_eidt.setText("");
                 }
             }
         });
@@ -213,7 +235,7 @@ public class MenuActivity extends AppCompatActivity {
     void list_setting(){
         try{
             PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_menu.php");
-            String result = request.PhP_food_menu(name);
+            String result = request.PhP_food_menu(id);
 
             try{
                 food_list = new ArrayList<>();
@@ -252,6 +274,9 @@ public class MenuActivity extends AppCompatActivity {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+
+                            progressDialog = ProgressDialog.show(MenuActivity.this, "로딩 중", "잠시 기달려주세요.",true);
+
                             food_name_edit.setText(food_list.get(i).get("food_name"));
                             price_eidt.setText(food_list.get(i).get("price").toString().replace("원",""));
                             num = food_list.get(i).get("num");
@@ -286,6 +311,8 @@ public class MenuActivity extends AppCompatActivity {
                             }else{
                                 imageButton.setImageResource(R.drawable.icon1);
                             }
+
+                            handler.sendEmptyMessage(0);
                         }
                     });
                 }
@@ -340,7 +367,7 @@ public class MenuActivity extends AppCompatActivity {
             // write data
             DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
             dos.writeBytes(twoHyphens + boundary + lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + fileName +"."+ name +"\"" + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + fileName +"." + name + "\"" + lineEnd);
             dos.writeBytes(lineEnd);
 
             int bytesAvailable = mFileInputStream.available();

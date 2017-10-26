@@ -192,9 +192,9 @@ public class PHPRequest {
         }
     }
 
-    public String PhP_food_menu(final String name) {
+    public String PhP_food_menu(final String id) {
         try {
-            String postData = "name=" + name;
+            String postData = "id=" + id;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
@@ -238,9 +238,9 @@ public class PHPRequest {
         }
     }
 
-    public String PhP_food_menu_edit(final String name, final String food_name, final String price) {
+    public String PhP_food_menu_edit(final String id, final String food_name, final String price, final String num) {
         try {
-            String postData = "name=" + name + "&food_name=" + food_name + "&price=" + price;
+            String postData = "id=" + id + "&food_name=" + food_name + "&price=" + price + "&num=" + num;
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
@@ -260,10 +260,10 @@ public class PHPRequest {
         }
     }
 
-    public String PhP_food_menu_edit(final String name, final String food_name, final String price, final String num) {
+    public String PhP_food_menu_edit(final String food_name, final String price, final String num) {
         try {
-            String postData = "name=" + name + "&food_name=" + food_name + "&price=" + price + "&num=" + num;
-            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+            String postData = "food_name=" + food_name + "&price=" + price + "&num=" + num;
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
             conn.setConnectTimeout(5000);
@@ -276,8 +276,7 @@ public class PHPRequest {
             String result = readStream(conn.getInputStream());
             conn.disconnect();
             return result;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.i("PHPRequest", "request was failed.");
             return null;
         }
