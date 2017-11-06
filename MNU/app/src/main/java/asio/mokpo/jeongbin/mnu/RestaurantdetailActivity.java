@@ -47,6 +47,7 @@ public class RestaurantdetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getExtras().getString("name");
+        String id = intent.getExtras().getString("id");
 
         food_list = new ArrayList<>();
 
@@ -54,14 +55,14 @@ public class RestaurantdetailActivity extends AppCompatActivity {
 
         try{
             PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_count.php");
-            String result = request.PhPfood_name(name);
+            String result = request.PhPfood_name(id);
         }catch (MalformedURLException e){
             e.printStackTrace();
         }
 
         try{
             PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/restaurant_detail.php");
-            String result = request.PhPrestaurant_detail(name);
+            String result = request.PhPrestaurant_detail(id);
             try{
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray nameAarry = jsonObject.getJSONArray("result");
@@ -85,7 +86,7 @@ public class RestaurantdetailActivity extends AppCompatActivity {
 
         try{
             PHPRequest request = new PHPRequest("http://114.70.93.130/mnu/food_menu.php");
-            String result = request.PhPfood_name(name);
+            String result = request.PhPfood_name(id);
 
             try{
                 JSONObject jsonObject = new JSONObject(result);

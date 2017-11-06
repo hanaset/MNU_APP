@@ -13,12 +13,12 @@
 
 	$id = $_POST['id'];
 
-	$sql = "SELECT name, phone, time, password, delivery FROM restaurant Where id ='".$id."'";
+	$sql = "SELECT * FROM restaurant Where id ='".$id."'";
 	$result = mysqli_query($conn, $sql);
 
 	if(mysqli_num_rows($result) > 0){
 		$row = mysqli_fetch_assoc($result);
-		echo $row['name'].",".$row['phone'].",".$row['time'].",".$row['password'].",".$row['delivery'];
+		echo $row['name'].",".$row['phone'].",".$row['time'].",".$row['password'].",".$row['delivery'].",".$row['image'];
 	}else{
 		echo "failed";
 	}

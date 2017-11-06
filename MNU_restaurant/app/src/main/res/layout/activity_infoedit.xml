@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
@@ -22,137 +23,169 @@
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <TextView
-        android:id="@+id/Info_id_text"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_weight="0.29"
-        android:allowUndo="false"
-        android:background="@drawable/shape"
-        android:gravity="center"
-        android:text="아이디"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="10pt"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/info_pass_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="15dp"
-        android:text="비밀번호"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="7pt"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/Info_id_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="0.29"
+                android:allowUndo="false"
+                android:background="@drawable/shape"
+                android:gravity="center"
+                android:text="아이디"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="10pt"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/info_pass_edit"
-        style="@style/Edit"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="변경할 패스워드"
-        android:inputType="textPersonName"
-        android:textAlignment="textStart"
-        android:textSize="9pt" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="0.29" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            <TextView
+                android:id="@+id/info_image_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="0.29"
+                android:text="대표 사진"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="7pt"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/Info_time_Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="15dp"
-        android:text="가게 오픈 시간"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="7pt"
-        android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/info_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/icon4" />
 
-    <EditText
-        android:id="@+id/info_time_edit"
-        style="@style/Edit"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="변경할 가게 시간"
-        android:inputType="textPersonName"
-        android:textAlignment="textStart"
-        android:textSize="9pt" />
+            <TextView
+                android:id="@+id/info_pass_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:text="비밀번호"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="7pt"
+                android:textStyle="bold" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            <EditText
+                android:id="@+id/info_pass_edit"
+                style="@style/Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="변경할 패스워드"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textSize="9pt" />
 
-    <TextView
-        android:id="@+id/Info_phone_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="15dp"
-        android:text="연락처"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="7pt"
-        android:textStyle="bold" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
-    <EditText
-        android:id="@+id/Info_phone_edit"
-        style="@style/Edit"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="변경할 연락처"
-        android:inputType="textPersonName"
-        android:textAlignment="textStart"
-        android:textSize="9pt" />
+            <TextView
+                android:id="@+id/Info_time_Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:text="가게 오픈 시간"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="7pt"
+                android:textStyle="bold" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
+            <EditText
+                android:id="@+id/info_time_edit"
+                style="@style/Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="변경할 가게 시간"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textSize="9pt" />
 
-    <TextView
-        android:id="@+id/info_delivery_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="15dp"
-        android:text="배달유무( 가능 : 1, 불가능 : 0)"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="7pt"
-        android:textStyle="bold" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
-    <EditText
-        android:id="@+id/Info_delivery_edit"
-        style="@style/Edit"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="변경할 연락처"
-        android:inputType="textPersonName"
-        android:textAlignment="textStart"
-        android:textSize="9pt" />
+            <TextView
+                android:id="@+id/Info_phone_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:text="연락처"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="7pt"
+                android:textStyle="bold" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            <EditText
+                android:id="@+id/Info_phone_edit"
+                style="@style/Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="변경할 연락처"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textSize="9pt" />
 
-    <Button
-        android:id="@+id/Info_edit_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
-        android:text="변경하기"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="11pt"
-        android:textStyle="bold" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/info_delivery_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:text="배달유무( 가능 : 1, 불가능 : 0)"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="7pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/Info_delivery_edit"
+                style="@style/Edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="변경할 연락처"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textSize="9pt" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <Button
+                android:id="@+id/Info_edit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.29"
+                android:background="@drawable/shape"
+                android:text="변경하기"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="11pt"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

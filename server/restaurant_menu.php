@@ -5,7 +5,7 @@
 	$mysql_password = 'wjdqls56';
 	$mysql_database = 'mnu';
 
-	$name = $_POST['name'];
+	$id = $_POST['id'];
 
 	$conn = mysqli_connect("114.70.93.130",$mysql_username,$mysql_password,$mysql_database);
 
@@ -13,14 +13,14 @@
 		die("Connection failed: ". mysqli_connect_error());
 	}
 
-	$sql = "SELECT * FROM food_menu Where name = '".$name."' order by price";
+	$sql = "SELECT * FROM food_menu Where name = '".$id."' order by price desc";
 	$result = mysqli_query($conn, $sql);
 	$text = array();
 
 
 	if(mysqli_num_rows($result) > 0){
 		while($row = mysqli_fetch_assoc($result)){
-			array_push($text, array('food_name'=>$row["food_name"],'price'=>$row["price"]));
+			array_push($text, array('food_name'=>$row["food_name"],'price'=>$row["price"],'num'=>$row["num"],'image'=>$row["image"]));
 		}
 	
 	$json = json_encode(array("result"=>$text));

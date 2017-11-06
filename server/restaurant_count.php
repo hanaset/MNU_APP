@@ -11,9 +11,9 @@
 		die("Connection failed: ". mysqli_connect_error());
 	}
 
-	$name = $_POST['name'];
+	$id = $_POST['id'];
 
-	$sql = "UPDATE restaurant set count = count+1 where name = '".$name."'";
+	$sql = "UPDATE restaurant set count = count+1 where id = '".$id."'";
 	
 	$result = mysqli_query($conn, $sql);
 

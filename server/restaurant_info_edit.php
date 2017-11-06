@@ -16,8 +16,9 @@
 	$phone = $_POST['phone'];
 	$time = $_POST['time'];
 	$delivery = $_POST['delivery'];
+	$image = $_POST['image'];
 
-	$sql = "UPDATE restaurant set password = '".$pass."', phone = '".$phone."', time = '".$time."', delivery = '".$delivery."' where id = '".$id."'";
+	$sql = "UPDATE restaurant set password = '".$pass."', phone = '".$phone."', time = '".$time."', delivery = '".$delivery." where id = '".$id."'";
 	
 	$result = mysqli_query($conn, $sql);
 

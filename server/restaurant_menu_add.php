@@ -5,9 +5,10 @@
 	$mysql_password = 'wjdqls56';
 	$mysql_database = 'mnu';
 
-	$name = $_POST['name'];
+	$id = $_POST['id'];
 	$food = $_POST['food_name'];
 	$price = $_POST['price'];
+	$num = $_POST['num'];
 
 	$conn = mysqli_connect("114.70.93.130",$mysql_username,$mysql_password,$mysql_database);
 
@@ -15,7 +16,7 @@
 		die("Connection failed: ". mysqli_connect_error());
 	}
 
-	$sql = "INSERT INTO food_menu values ('".$name."','".$food."','".$price."')";
+	$sql = "INSERT INTO food_menu values ('".$num."','".$id."','".$food."','".$price."','')";
 	$result = mysqli_query($conn, $sql);
 
 	if($result){

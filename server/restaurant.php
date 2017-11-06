@@ -13,14 +13,14 @@
 		die("Connection failed: ". mysqli_connect_error());
 	}
 
-	$sql = "SELECT name, notice FROM restaurant Where delivery >= ".$delivery." order by count desc";
+	$sql = "SELECT * FROM restaurant Where delivery >= ".$delivery." order by count desc";
 	$result = mysqli_query($conn, $sql);
 	$text = array();
 
 
 	if(mysqli_num_rows($result) > 0){
 		while($row = mysqli_fetch_assoc($result)){
-			array_push($text, array('name'=>$row["name"],'notice'=>$row["notice"]));
+			array_push($text, array('name'=>$row["name"],'notice'=>$row["notice"],'id'=>$row['id']));
 		}
 	
 	$json = json_encode(array("result"=>$text));

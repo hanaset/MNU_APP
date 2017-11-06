@@ -18,7 +18,7 @@
 	$time = $_POST['time'];
 	$delivery = $_POST['delivery'];
 
-	$sql = "INSERT into restaurant values ('".$name."','".$phone."','".$time."','".$delivery."','.','0','','".$id."','".$pass."')";
+	$sql = "INSERT into restaurant values ('".$name."','".$phone."','".$time."','".$delivery."','.','0','null','".$id."','".$pass."')";
 	
 	$result = mysqli_query($conn, $sql);
 

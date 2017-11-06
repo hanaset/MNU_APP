@@ -11,9 +11,9 @@
 		die("Connection failed: ". mysqli_connect_error());
 	}
 
-	$name = $_POST['name'];
+	$id = $_POST['id'];
 
-	$sql = "SELECT * FROM food_menu Where name ='".$name."'";
+	$sql = "SELECT * FROM food_menu Where name ='".$id."'";
 	$result = mysqli_query($conn, $sql);
 	$text = array();
 

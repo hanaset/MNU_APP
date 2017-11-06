@@ -169,9 +169,9 @@ public class PHPRequest {
         }
     }
 
-    public String PhP_Edit(final String id, final String pass, final String phone, final String time, final String delivery) {
+    public String PhP_Edit(final String id, final String pass, final String phone, final String time, final String delivery, final String image_uri) {
         try {
-            String postData = "id=" + id +"&pass=" + pass + "&phone=" + phone +  "&time=" + time + " &delivery=" + delivery;
+            String postData = "id=" + id +"&pass=" + pass + "&phone=" + phone +  "&time=" + time + " &delivery=" + delivery + "&image=" + image_uri;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");

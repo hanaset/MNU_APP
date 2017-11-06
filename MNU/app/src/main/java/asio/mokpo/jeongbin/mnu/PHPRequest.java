@@ -80,9 +80,9 @@ public class PHPRequest {
     }
 
 
-    public String PhPrestaurant_detail(final String name) {
+    public String PhPrestaurant_detail(final String id) {
         try {
-            String postData = "name=" + name;
+            String postData = "id=" + id;
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
@@ -127,9 +127,9 @@ public class PHPRequest {
         }
     }
 
-    public String PhPfood_name(final String name) {
+    public String PhPfood_name(final String id) {
         try {
-            String postData = "name=" + name;
+            String postData = "id=" + id;
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");
