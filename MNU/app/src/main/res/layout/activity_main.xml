@@ -68,7 +68,7 @@
             android:id="@+id/main_contain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#303F9F">
+            android:background="@color/main">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -90,6 +90,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
+                            android:alpha="0.9"
                             android:background="@android:color/background_light"
                             android:elevation="0dp"
                             android:scaleType="centerCrop"
@@ -105,6 +106,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
+                                android:shadowColor="@android:color/background_dark"
+                                android:shadowRadius="15"
                                 android:text="오늘 식단표"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/white"
@@ -124,6 +127,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
+                            android:alpha="0.9"
                             android:background="@android:color/background_light"
                             android:scaleType="centerCrop"
                             app:srcCompat="@drawable/bus_btn" />
@@ -138,6 +142,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
+                                android:shadowColor="@android:color/background_dark"
+                                android:shadowRadius="15"
                                 android:text="버스 시간표"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/background_light"
@@ -158,9 +164,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
+                            android:alpha="0.9"
                             android:background="@android:color/background_light"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/weather_btn" />
+                            app:srcCompat="@drawable/backdoor" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -172,6 +179,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
+                                android:shadowColor="@android:color/background_dark"
+                                android:shadowRadius="15"
                                 android:text="후문 먹거리"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/background_light"
@@ -192,6 +201,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_weight="1"
+                            android:alpha="0.9"
                             android:background="@android:color/background_light"
                             android:scaleType="centerCrop"
                             app:srcCompat="@drawable/book_btn" />
@@ -206,6 +216,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
+                                android:shadowColor="@android:color/background_dark"
+                                android:shadowRadius="15"
                                 android:text="학교 인트라넷"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="15pt"

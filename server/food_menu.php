@@ -20,7 +20,7 @@
 
 	if(mysqli_num_rows($result) > 0){
 		while($row = mysqli_fetch_assoc($result)){
-			array_push($text, array('food_name'=>$row["food_name"],'price'=>$row["price"]));
+			array_push($text, array('food_name'=>$row["food_name"],'price'=>$row["price"], 'image'=>$row["image"]));
 		}
 	
 	$json = json_encode(array("result"=>$text));

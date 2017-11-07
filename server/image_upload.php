@@ -30,11 +30,7 @@ if(!$conn){
 $sql = "UPDATE restaurant set image = '".$target_path."' Where id = '".$id."'";
 $result = mysqli_query($conn, $sql);
 
-if($result){
-	echo "1";
-}else{
-	echo "-1";
-}
+
 mysqli_close($conn);
 
 ?>

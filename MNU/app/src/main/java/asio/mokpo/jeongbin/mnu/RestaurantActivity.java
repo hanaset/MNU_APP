@@ -63,7 +63,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         final ArrayList<String> arrayList = new ArrayList<String>();
         arrayList.add("전체 보기");
-        arrayList.add("배달 가능");
+        arrayList.add("배달 가능 매장");
 
         progressDialog = ProgressDialog.show(RestaurantActivity.this, "로딩중 ", "잠시만 기다려주세요.", true);
 

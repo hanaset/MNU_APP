@@ -114,7 +114,7 @@ public class InfoEditActivity extends AppCompatActivity {
                 if(imageButton != null){
                     try {
                         DoFileUpload(image_uri, id, "http://114.70.93.130/mnu/image_upload.php");
-                        if(upload.equals("11")){
+                        if(upload.equals("1")){
                             Toast.makeText(getApplication(),"수정이 완료 되었습니다.",Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(getApplication(),"수정에 실패 하였습니다.",Toast.LENGTH_SHORT).show();

@@ -56,10 +56,6 @@
                 android:textSize="8pt"
                 android:textStyle="bold" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp" />
-
         </LinearLayout>
     </FrameLayout>
 
